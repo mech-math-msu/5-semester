@@ -1,0 +1,17 @@
+[
+    {
+        "keyword": "финитных замкнуто",
+        "html": "<p><a href=\"классические-пространства.html#definition-0\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<span class=\"math inline\">\\(\\mathbb{R}^{\\infty}\\)</span> – это\nобъединение цепочки вложенных пространств <span\nclass=\"math inline\">\\(\\mathbb{R}^1 \\subset \\mathbb{R}^2 \\subset\n\\ldots\\)</span> или при одождествлении <span class=\"math inline\">\\((x_1,\n\\ldots, x_n)\\)</span> с <span class=\"math inline\">\\((x_1, \\ldots, x_n,\n0, \\ldots)\\)</span> множество всех <em>финитных</em>, то есть нулевых,\nначиная с некоторого номера последовательностей действительных\nчисел.</p>\n<p>Топология на <span class=\"math inline\">\\(\\mathbb{R}^{\\infty}\\)</span>\nвводится так: множество <span class=\"math inline\">\\(F \\subset\n\\mathbb{R}^{\\infty}\\)</span> <em>замкнуто</em>, если <span\nclass=\"math inline\">\\(\\forall n \\in \\mathbb{N} \\,\\,\\,\\, F \\cap\n\\mathbb{R}^n\\)</span> – замкнуто в <span\nclass=\"math inline\">\\(\\mathbb{R}^n\\)</span>. (И аналогично открыто.)</p>",
+        "url": "классические-пространства.html#definition-0"
+    },
+    {
+        "keyword": "гильбертово пространство",
+        "html": "<p><a href=\"классические-пространства.html#definition-1\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Гильбертово пространство</em> <span\nclass=\"math inline\">\\(l_2\\)</span> – совокупность последовательностей\n<span class=\"math inline\">\\((x_1, x_2, \\ldots)\\)</span>, для которых\nсходится ряд <span class=\"math inline\">\\(\\displaystyle \\sum_i\nx_i^2\\)</span>, с топологией, порожденной метрикой <span\nclass=\"math inline\">\\(\\rho((x_1, x_2, \\ldots), (y_1, y_2, \\ldots)) =\n\\displaystyle \\sum_i (x_i - y_i)^2\\)</span>.</p>",
+        "url": "классические-пространства.html#definition-1"
+    },
+    {
+        "keyword": "тихоновское пространство",
+        "html": "<p><a href=\"классические-пространства.html#definition-2\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Тихоновское пространство</em> <span class=\"math inline\">\\(T\\)</span>\n–</p>",
+        "url": "классические-пространства.html#definition-2"
+    }
+]

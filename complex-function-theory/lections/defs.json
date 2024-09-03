@@ -1,0 +1,7 @@
+[
+    {
+        "keyword": "поле комплексных чисел",
+        "html": "<p><a href=\"лекция-1.html#definition-0\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Поле комплексных чисел</em> <span\nclass=\"math inline\">\\(\\mathbb{C}\\)</span> – это множество пар <span\nclass=\"math inline\">\\((a, b)\\)</span> действительных чисел с <span\nclass=\"math inline\">\\((a, b) + (c, d) = (a + c, b + d)\\)</span>, <span\nclass=\"math inline\">\\((a, b) \\times (c, d) = (ac - bd, ad + bc)\\)</span>\nи обозначением <span class=\"math inline\">\\((a, b) \\equiv a +\nbi\\)</span>.</p>",
+        "url": "лекция-1.html#definition-0"
+    }
+]

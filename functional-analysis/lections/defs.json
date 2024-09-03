@@ -1,0 +1,22 @@
+[
+    {
+        "keyword": "метрика",
+        "html": "<p><a href=\"функциональные-пространства.html#definition-1\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<span class=\"math inline\">\\(d: M \\to \\mathbb{R}\\)</span> –\n<em>метрика</em> <span class=\"math inline\">\\(\\iff d(x, y) \\geqslant 0,\n\\,\\,\\,\\, d(x, y) &gt; 0\\)</span> при <span class=\"math inline\">\\(x \\ne\ny, \\,\\,\\,\\, d(x, x) = 0\\)</span>, <span class=\"math inline\">\\(d(x, y) =\nd(y, x)\\)</span> и <span class=\"math inline\">\\(d(x, z) \\leqslant d(x, y)\n+ d(y, z)\\)</span>.</p>",
+        "url": "функциональные-пространства.html#definition-1"
+    },
+    {
+        "keyword": "метрическое пространство",
+        "html": "<p><a href=\"функциональные-пространства.html#definition-0\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<span class=\"math inline\">\\((M, d)\\)</span> – <em>метрическое\nпространство</em> <span class=\"math inline\">\\(\\iff M\\)</span> –\nмножество, <span class=\"math inline\">\\(d\\)</span> – метрика.</p>",
+        "url": "функциональные-пространства.html#definition-0"
+    },
+    {
+        "keyword": "изометрия",
+        "html": "<p><a href=\"функциональные-пространства.html#definition-2\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Изометрия</em> метрических пространств – взаимно-однозначное\nотображение, сохраняющее метрику.</p>",
+        "url": "функциональные-пространства.html#definition-2"
+    },
+    {
+        "keyword": "",
+        "html": "<p><a href=\"функциональные-пространства.html#definition-3\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПусть <span class=\"math inline\">\\(\\Omega\\)</span> множество. <span\nclass=\"math inline\">\\(B(\\Omega)\\)</span> – множество ограниченных\nфункций на <span class=\"math inline\">\\(\\Omega\\)</span>.</p>",
+        "url": "функциональные-пространства.html#definition-3"
+    }
+]
