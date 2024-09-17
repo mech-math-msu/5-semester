@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+    
+    
+    
+    
+    <title>Векторные расслоения</title>
+    <style>
+        img.logo { position: fixed; left: 20px; top: 20px; width: 70px; height: 70px; }
+        div.sitenav { display: flex; justify-content: space-between; }
+        div.sitenav_right { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; flex-grow: 0; }
+        div.sitenav_left { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; flex-grow: 0; }
+        span.navlink { margin-left: 10px; }
+        span.navlink-label { display: inline-block; min-width: 4em; }
+        html {
+                    font-family: Georgia, serif;
+            
+                    font-size: 18px;
+            
+                    line-height: 1.45;
+            
+            color: #1a1a1a;
+
+            background-color: #fdfdfd;
+        }
+        body {
+            margin: 0 auto;
+            max-width: 64%;
+            padding-left: 20px;
+            padding-right: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            text-rendering: optimizeLegibility;
+            font-kerning: normal;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+        @media print {
+            html {
+                background-color: white;
+            }
+            body {
+                background-color: transparent;
+                color: black;
+                font-size: 16px;
+            }
+            p, h2, h3 {
+                orphans: 3;
+                widows: 3;
+            }
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
+        p {
+            margin: 0.5rem 0;
+        }
+        a {
+            color: #1a1a1a;
+        }
+        a:hover {
+            color: #7bc99a;
+        }
+        a:visited {
+            color: #1a1a1a;
+        }
+        img {
+            max-width: 100%;
+        }
+        svg {
+            height: auto;
+            max-width: 100%;
+        }
+
+        h1, h2 {
+            padding-bottom: 3px;
+            border-bottom: 1px solid black;
+        }
+
+        h1.title {
+            font-size: 2rem;
+            border: none;
+        }
+        h2.toc-title {
+            border: none !important;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 1rem 0;
+            margin-left: 0px;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        ol, ul {
+            padding-left: 1.7rem;
+            margin-top: 1rem;
+        }
+        li > ol, li > ul {
+            margin-top: 0;
+        }
+        blockquote {
+            margin: 1rem 0 1rem 1.7rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e6e6e6;
+            color: #606060;
+        }
+
+
+        code {
+            font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+                font-size: 85%;
+        /*    padding: 1rem 2rem;*/
+            margin: 0;
+            hyphens: manual;
+        }
+        pre {
+            margin: 1rem 0;
+                padding: 1rem 2rem;
+            overflow: auto;
+        }
+        pre code {
+        /*    padding: 1rem 2rem;*/
+            overflow: visible;
+            overflow-wrap: normal;
+        }
+        .sourceCode {
+            background-color: transparent;
+            overflow: visible;
+        }
+        div.sourceCode {
+            border-radius: 5px;
+            margin-left: 10px !important;
+        }
+        hr {
+            background-color: #1a1a1a;
+            border: none;
+            height: 1px;
+            margin: 1rem 0;
+        }
+        table {
+            margin: 1rem 0;
+            border-collapse: collapse;
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+        table caption {
+            margin-bottom: 0.75rem;
+        }
+        tbody {
+            margin-top: 0.5rem;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        th {
+            border-top: 1px solid #1a1a1a;
+            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        }
+        td {
+            padding: 0.125rem 0.5rem 0.25rem 0.5rem;
+        }
+        header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        #TOC li {
+            list-style: none;
+        }
+        #TOC ul {
+            padding-left: 1.3rem;
+        }
+        #TOC > ul {
+            padding-left: 0;
+        }
+        #TOC a:not(:hover) {
+            text-decoration: none;
+        }
+
+        code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        div.columns{display: flex; gap: min(4vw, 1.5em);}
+        div.column{flex: auto; overflow-x: auto;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        /* The extra [class] is a hack that increases specificity enough to
+           override a similar rule in reveal.js */
+        ul.task-list[class]{list-style: none;}
+        ul.task-list li input[type="checkbox"] {
+            font-size: inherit;
+            width: 0.8rem;
+            margin: 0 0.8rem 0.2rem -1.6rem;
+            vertical-align: middle;
+        }
+
+
+
+
+        .margin-lft {
+            margin-left: 0px;
+        }    </style>
+
+    
+    <script src="https://kit.fontawesome.com/4b37446228.js" crossorigin="anonymous"></script>
+
+    
+            <script
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+            type="text/javascript"></script>
+    </head>
+<body>
+
+
+<a href="https://mech-math-msu.github.io/everything/#/">
+    <img src="ico.png" alt="" class="logo">
+</a>
+
+<nav id="sitenav">
+    <div class="sitenav">
+        <div class="sitenav_left">
+            <span class="navlink">
+                <a href="search.html" accesskey="s" rel="search"><i class="fa-solid fa-search fa-sm" style="color: #363636;"></i></a>
+            </span>
+        </div>
+        <div class="sitenav_right">
+            <span class="navlink">
+                                <a href="index.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                            </span>
+        </div>
+    </div>
+</nav>
+
+
+
+<h1 data-number="1" id="векторные-расслоения">Векторные расслоения</h1>
+<p>Чтобы объяснить определение векторного расслоения давайте рассмотрим
+касательные векторы к единичной сфере <span class="math inline">\(S^2
+\subset \mathbb{R}^3\)</span> (Сфера – это множество единичных
+векторов.). В каждой точке <span class="math inline">\(x \in
+S^2\)</span> определена касательная плоскость <span
+class="math inline">\(P_x\)</span>. Это двумерное векторное пространство
+с нулевым вектором <span class="math inline">\(\mathbf{0}_x\)</span>.
+Векторы из <span class="math inline">\(P_x\)</span> представляются как
+направленные отрезки с концами в <span class="math inline">\(x\)</span>.
+Если относиться к <span class="math inline">\(v_x \in P_x\)</span>, как
+к вектору в <span class="math inline">\(\mathbb{R^3}\)</span>, то
+стандартным соглашением в линейной алгебре будет отнести <span
+class="math inline">\(v_x \in P_x\)</span> к классу эквивалентности всех
+векторов получающихся параллельным переносом, к которому в частности
+относится вектор <span class="math inline">\(\tau(v_x)\)</span> с концом
+в начале координат <span class="math inline">\(\mathbb{R}^3\)</span>.
+Соотношение <span class="math inline">\(v_x \mapsto \tau(v_x)\)</span>
+определяет отображение <span class="math inline">\(\tau: TS^2 \to
+\mathbb{R}^3\)</span>, где <span class="math inline">\(TS^2\)</span> –
+множество всех касательных векторов к <span
+class="math inline">\(S^2\)</span>. <span
+class="math inline">\(\tau\)</span> сюръективна, но, конечно, не
+инъективна, так как прообразом каждого вектора в <span
+class="math inline">\(\mathbb{R}^3\)</span> является большая окружность
+сферы. С другой стороны отображение <span class="math inline">\(TS^2 \to
+S^2\times \mathbb{R}^3: v_x \mapsto (x, \tau(v_x))\)</span> инъективно и
+может быть использовано, чтобы определить топологию на <span
+class="math inline">\(TS^2\)</span>, как на подпространстве <span
+class="math inline">\(S^2\times \mathbb{R}^3\)</span>, состоящем из пар
+<span class="math inline">\((x, v)\)</span>, где <span
+class="math inline">\(x \in S^2\)</span> и <span class="math inline">\(v
+\perp x\)</span>. (Как описать построение гомеоморфизма, чтобы я ничего
+не поняла.)</p>
+<p>Таким образом <span class="math inline">\(TS^2\)</span>, во-первых,
+топологическое пространство, а во-вторых, дизъюнктное объединение всех
+векторных пространств <span class="math inline">\(P_x\)</span> для всех
+<span class="math inline">\(x \in S^2\)</span>. Можно представлять <span
+class="math inline">\(TS^2\)</span> как непрерывное семейство векторных
+пространств параметризированное точками на сфере.</p>
+<p>Наиболее простое непрерывное семейство двумерных векторных
+пространств – это, конечно, прямое произведение <span
+class="math inline">\(S^2\times \mathbb{R}^2\)</span>. Является ли <span
+class="math inline">\(TS^2\)</span> этим пространством? Более точно,
+можно задаться вопросом, существует ли гомеоморфизм <span
+class="math inline">\(h: TS^2 \to S^2\times \mathbb{R}^2\)</span>,
+который переводит каждую плоскость <span
+class="math inline">\(P_x\)</span> в плоскость <span
+class="math inline">\(\{x\}\times \mathbb{R}^2\)</span> с помощью
+изоморфизма векторных пространств. Если бы имелось такое отображение
+<span class="math inline">\(h\)</span>, то для каждого фиксированного
+ненулевого вектора <span class="math inline">\(v \in
+\mathbb{R}^2\)</span> семейство векторов <span class="math inline">\(v_x
+= h^{-1}(x, v)\)</span> являлось бы непрерывным полем касательных
+векторов к <span class="math inline">\(S^2\)</span>. В алгебраической
+топологии существует теорема, показывающая, что такого векторного поля
+не существует <span class="math inline">\(\para 2.2\)</span>. Поэтому
+<span class="math inline">\(TS^2\)</span> по-настоящему
+<code>twisted</code> (изощренное) пространство, а не просто новое
+представление <span class="math inline">\(S^2 \times
+\mathbb{R}^2\)</span>.</p>
+<p>Уменьшая размерность, можно рассмотреть пространство <span
+class="math inline">\(TS^1\)</span> касательных векторов к единичной
+окружности <span class="math inline">\(S^1 \in \mathbb{R}^2\)</span>. В
+этом случае существует непрерывное поле ненулевых касательных векторов,
+получаемое рассмотрением точек окружности, как комплексных чисел, и
+считая <span class="math inline">\(v_x\)</span> переносом вектора <span
+class="math inline">\(ix\)</span> с концом в <span
+class="math inline">\(x\)</span>. Таким образом получаем гомеоморфизм
+<span class="math inline">\(S^1 \times \mathbb{R} \to TS^1: (x, t)
+\mapsto tv_x\)</span> c <span class="math inline">\(\{x\}\times
+\mathbb{R}\)</span>, переходящим в касательную прямую, проходящуюю через
+<span class="math inline">\(x\)</span>, посредством изоморфизма. Таким
+образом, <span class="math inline">\(TS^1\)</span> действительно
+эквивалентно <span class="math inline">\(S^1\times
+\mathbb{R}^1\)</span>.</p>
+<p>Переходя к <span class="math inline">\(S^3\)</span>, получаем, что
+<span class="math inline">\(TS^3\)</span> опять же эквивалентно
+произведению <span class="math inline">\(S^3\times
+\mathbb{R}^3\)</span>. Рассматривая <span
+class="math inline">\(\mathbb{R}^4\)</span> как кватернионы,
+эквивалентностью будет гомеоморфизм <span
+class="math inline">\(S^3\times \mathbb{R}^3 \to TS^3\)</span>
+переводящий <span class="math inline">\((x, (t_1, t_2, t_3))\)</span> в
+вектор параллельный <span class="math inline">\(t_1i x + t_2 j x + t_3 k
+x\)</span> с концом в <span class="math inline">\(x\)</span>.
+Аналогичная конструкция использующая октонианы Кэли показывает, что
+<span class="math inline">\(TS^7\)</span> эквивалентно <span
+class="math inline">\(S^7\times \mathbb{R}^7\)</span>. Довольно глубокая
+теорема, доказанная в <span class="math inline">\(\para 2.3\)</span>,
+показывает, что <span class="math inline">\(S^1, S^3\)</span> и <span
+class="math inline">\(S^7\)</span> единственные сферы, касательное
+расслоение которых эквивалентно прямому произведению.</p>
+<p>Хотя <span class="math inline">\(TS^n\)</span> обычно не эквивалентно
+<span class="math inline">\(S^n\times \mathbb{R}^n\)</span>, в некотором
+смысле это верно локально. Рассмотрим случай двумерной сферы. Для точки
+<span class="math inline">\(x \in S^2\)</span> обозначим за <span
+class="math inline">\(P\)</span> плоскость, проходящую через начало
+координат, полученную параллельным переносом <span
+class="math inline">\(P_x\)</span>. Для точек <span
+class="math inline">\(y \in S^2\)</span> достаточно близких к <span
+class="math inline">\(x\)</span> отображение <span
+class="math inline">\(\pi_y: P_y \to P\)</span>, отображающее
+касательный вектор <span class="math inline">\(v_x\)</span> в
+ортогональную проекцию <span class="math inline">\(\pi_y(v_y)\)</span>
+на <span class="math inline">\(P\)</span>, является изоморфизмом. На
+самом деле это верно для любой точки, находящейся с той же стороны от
+<span class="math inline">\(P\)</span>, что и <span
+class="math inline">\(y\)</span>. Таким образом, для любого <span
+class="math inline">\(y\)</span> из подходящей окрестности <span
+class="math inline">\(U\)</span> точки <span
+class="math inline">\(x\)</span> отображение <span
+class="math inline">\((y, v_y) \mapsto (y, \pi_y(v_y))\)</span> является
+гомеоморфизмом подпространства <span
+class="math inline">\(TS^2\)</span>, состоящего из касательных векторов
+к точкам из <span class="math inline">\(U\)</span>, и произведения <span
+class="math inline">\(U\times P\)</span>. Более того сужение этого
+гомеоморфизма на <span class="math inline">\(\{y\}\times P_y\)</span>
+является изоморфизмом <span class="math inline">\(P\)</span> и <span
+class="math inline">\(P_y\)</span>. Для обобщения этой конструкции
+удобно взять <span class="math inline">\(p: TS^2 \to S^2: (x, v_x)
+\mapsto x\)</span>. В таком случае имеется гомеоморфизм <span
+class="math inline">\(p^{-1}(U)\)</span> и <span class="math inline">\(U
+\times P\)</span>, который в ограничении на <span
+class="math inline">\(p^{-1}(y) \to \{y\}\times P\)</span> является
+изоморфизмом для каждого <span class="math inline">\(y \in U\)</span>. С
+этим наблюдением можно приступить к формальному определению векторного
+расслоения.</p>
+<h2 data-number="1.1" id="базовые-определения-и-конструкции">Базовые
+определения и конструкции</h2>
+<p><em>В этой книге отображение всегда непрерывно. А множество, если не
+указано иное, – топологическое пространство.</em></p>
+<p><em><span class="math inline">\(n\)</span>-мерное векторное
+расслоение</em> – это отображение <span class="math inline">\(p: E \to
+B\)</span> вместе со структурой векторного пространства на <span
+class="math inline">\(p^{-1}(b)\)</span> для каждого <span
+class="math inline">\(b \in B\)</span>, такое что выполнено условие
+локальной тривиальности: существует открытое покрытие <span
+class="math inline">\(B\)</span> множествами <span
+class="math inline">\(\{U_{\alpha}\}\)</span>, для каждого из которых
+существует гомеоморфизм <span class="math inline">\(h_{\alpha}:
+p^{-1}(U_{\alpha}) \to U_{\alpha}\times \mathbb{R}^n\)</span>, такой что
+отображение <span class="math inline">\(p^{-1}(b) \to \{b\}\times
+\mathbb{R}^n\)</span> является изоморфизмом для <span
+class="math inline">\(b \in U_{\alpha}\)</span>. Такое <span
+class="math inline">\(h_{\alpha}\)</span> называется <em>локальной
+тривиализацией</em> (<em>local trivialization</em>) векторного
+расслоения. Пространство <span class="math inline">\(B\)</span> –
+<em>база</em>, <span class="math inline">\(E\)</span> – <em>тотальное
+пространство</em>, векторные пространства <span
+class="math inline">\(p^{-1}(b)\)</span> – <em>нити</em>
+(<em>fibers</em>). Часто, когда <span class="math inline">\(p\)</span>
+понятно из контекста, векторным расслоением называется пространство
+<span class="math inline">\(E\)</span>.</p>
+<p>Вместо <span class="math inline">\(\mathbb{R}\)</span> можно взять
+<span class="math inline">\(\mathbb{C}\)</span>. Полученное пространство
+– <em>комплексное векторное расслоение</em>. В этой главе будут
+рассматриваться вещественные векторные расслоения. Чаще всего случай
+комплексных пространств полностью аналогичен.</p>
+<h3 data-number="1.1.1" id="примеры">Примеры</h3>
+<h4 data-number="1.1.1.1" id="тривиальное-расслоение">1. Тривиальное
+расслоение</h4>
+<p><span class="math inline">\(E = B\times \mathbb{R}^n\)</span>, <span
+class="math inline">\(p\)</span> – проекция на первый множитель.</p>
+<h4 data-number="1.1.1.2" id="расслоение-мёбиуса">2. Расслоение
+Мёбиуса</h4>
+<p>Пусть <span class="math inline">\(E\)</span> – фактор-пространство
+<span class="math inline">\(I \times \mathbb{R}\)</span> по отношению
+эквивалентности <span class="math inline">\((0, t) \sim (1,
+-t)\)</span>. Тогда проекция <span class="math inline">\(I \times
+\mathbb{R} \to I\)</span> индуцирует отображение <span
+class="math inline">\(p: E \to S^1\)</span>, которое является одномерным
+векторным расслоением. Так как <span class="math inline">\(E\)</span>
+гомеоморфно ленте Мёбиуса без края, <span
+class="math inline">\(E\)</span> называется <em>расслоение
+Мёбиуса</em>.</p>
+<h4 data-number="1.1.1.3"
+id="касательное-расслоение-сферы-sn-subset-mathbbrn-1">3. Касательное
+расслоение сферы <span class="math inline">\(S^n \subset \mathbb{R}^{n +
+1}\)</span></h4>
+<p>Векторное расслоение <span class="math inline">\(p: E \to
+S^n\)</span>, где <span class="math inline">\(E = \{(x, v) \in S^n\times
+\mathbb{R}^{n + 1}|\,\,\,\,v \perp x\}\)</span> (вектор <span
+class="math inline">\(v\)</span> можно считать касательным к <span
+class="math inline">\(S^n\)</span>, если взять паралелльный перенос с
+концом в <span class="math inline">\(x\)</span>). <span
+class="math inline">\(p: E \to S^n: (x, v) \mapsto x\)</span>. Чтобы
+построить локальные тривиализации, надо выбрать точку <span
+class="math inline">\(x \in S^n\)</span> и взять в качестве <span
+class="math inline">\(U_x\)</span> полусферу, содержащуюю <span
+class="math inline">\(x\)</span> и ограниченную плоскостью, проходящей
+через начало координат и перпендикулярной <span
+class="math inline">\(x\)</span>. Определим <span
+class="math inline">\(h_x: p^{-1}(U_x) \to U_x \times p^{-1}(x) \cong
+U_x \times \mathbb{R}^n\)</span>, следующим образом: <span
+class="math inline">\((y, v) \mapsto (y, \pi_x(v))\)</span>, где <span
+class="math inline">\(\pi_x\)</span> – ортогональная проекция на <span
+class="math inline">\(p^{-1}(x)\)</span>. <span
+class="math inline">\(h_x\)</span> локальная тривиализация, так как
+<span class="math inline">\(h_x\)</span> ограничивается до изоморфизма
+векторных пространств <span class="math inline">\(p^{-1}(x)\)</span> и
+<span class="math inline">\(p^{-1}(y)\)</span> для каждого <span
+class="math inline">\(y \in U_x\)</span>.</p>
+<h4 data-number="1.1.1.4"
+id="нормальное-тангенциальное-перпендикулярное-расслоение-сферы">4.
+Нормальное (тангенциальное / перпендикулярное) расслоение сферы</h4>
+<p><span class="math inline">\(p: E \to S^n\)</span>, где <span
+class="math inline">\(E\)</span> состоит из пар <span
+class="math inline">\((x, v) \in S^n \times \mathbb{R}^{n + 1}\)</span>,
+где <span class="math inline">\(v = tx, \,\,\,\, t \in
+\mathbb{R}\)</span>. Отображение <span class="math inline">\(p\)</span>
+опять же <span class="math inline">\((x, v) \mapsto x\)</span>. Как и в
+предыдущем примере <span class="math inline">\(h_x: p^{-1}(U_x) \to U_x
+\times \mathbb{R}\)</span> получается взятием ортогональной проекции
+<span class="math inline">\(p^{-1}(y)\)</span> на <span
+class="math inline">\(p^{-1}(x)\)</span> для каждого <span
+class="math inline">\(y \in U_x\)</span>.</p>
+<h4 data-number="1.1.1.5" id="расслоение-проективного-пространства">5.
+Расслоение проективного пространства</h4>
+<p>Вещественное проективное пространство <span
+class="math inline">\(\mathbb{R}P^n\)</span> – это множество прямых в
+<span class="math inline">\(\mathbb{R}^{n + 1}\)</span>, проходящих
+через начало координат. Так как каждая такая прямая пересекает единичную
+сферу в двух противолежащих точках, можно относиться к <span
+class="math inline">\(\mathbb{R}P^n\)</span>, как к фактору сферы по
+эквивалентности противоположных точек. <em>Каноническое расслоение</em>
+<span class="math inline">\(p: E \to \mathbb{R}P^n\)</span>, где <span
+class="math inline">\(E\)</span> подмножество <span
+class="math inline">\(\mathbb{R}P^n \times \mathbb{R}^{n + 1}\)</span>,
+состоящее из пар <span class="math inline">\((l, v), \,\,\,\, v \in
+l\)</span> и <span class="math inline">\(p(l, v) = l\)</span>. Локальные
+тривиализации опять же получаются взятием ортогональной проекции.</p>
+<p>Существует бесконечномерное проективное пространство <span
+class="math inline">\(\mathbb{R}P^{\infty}\)</span>, которое является
+объединением конечномерных проективных пространств <span
+class="math inline">\(\mathbb{R}P^n\)</span> с включением <span
+class="math inline">\(\mathbb{R}P^n \subset \mathbb{R}P^{n +
+1}\)</span>, получаемым из стандартного включения <span
+class="math inline">\(\mathbb{R}^{n + 1} \subset \mathbb{R}^{n +
+2}\)</span>. Топология на <span
+class="math inline">\(\mathbb{R}P^{\infty}\)</span> слабая или топология
+прямого предела, для которой множество в <span
+class="math inline">\(\mathbb{R}P^{\infty}\)</span> открыто, тогда и
+только тогда когда для любого <span class="math inline">\(n\)</span> его
+пересечение с <span class="math inline">\(\mathbb{R}P^n\)</span> открыто
+в <span class="math inline">\(\mathbb{R}P^n\)</span>. Включения <span
+class="math inline">\(\mathbb{R}P^n \subset \mathbb{R}P^{n + 1}\)</span>
+индуцируют соответствующие включения расслоений, а объединение
+полученных расслоений образует расслоение <span
+class="math inline">\(\mathbb{R}P^{\infty}\)</span>.</p>
+<h4 data-number="1.1.1.6"
+id="касательное-расслоение-проективного-пространства">6. Касательное
+расслоение проективного пространства</h4>
+<p>Каноническое расслоение <span
+class="math inline">\(\mathbb{R}P^n\)</span> имеет ортогональное
+дополнение, пространство <span class="math inline">\(E^{\perp} = \{(l,
+v) \in \mathbb{R}P^n\times \mathbb{R}^{n + 1}| \,\,\,\, v \perp
+l\}\)</span>. Проекция <span class="math inline">\(E^{\perp} \to
+\mathbb{R}P^n: (l, v) \to l\)</span>. Нити – это ортогональные к <span
+class="math inline">\(l\)</span> пространства размерности <span
+class="math inline">\(n\)</span>. Локальные тривиализации опять же
+ортогональная проекция.</p>
+<p>Естественное обобщение <span
+class="math inline">\(\mathbb{R}P^n\)</span> – это <em>многообразие
+Грассмана</em> или <em>грассманиан</em> <span
+class="math inline">\(G_k(\mathbb{R}^n)\)</span>, состоящее из всех
+<span class="math inline">\(k\)</span>-мерных гиперплоскостей,
+проходящих через начало координат <span
+class="math inline">\(\mathbb{R}^n\)</span>. Топология этого
+пространства будет точно определена в <span class="math inline">\(\para
+1.2\)</span> вместе с каноническим <span
+class="math inline">\(k\)</span>-мерным векторным расслоением, состоящим
+из пар <span class="math inline">\((l, v)\)</span>, где <span
+class="math inline">\(l\)</span> точка в <span
+class="math inline">\(G_k(\mathbb{R}^n)\)</span> и <span
+class="math inline">\(v\)</span> вектор в <span
+class="math inline">\(l\)</span>. Это расслоение также имеет
+ортогональное <span class="math inline">\(n - k\)</span>-мерное
+расслоение.</p>
+<p><em>Изоморфизм</em> векторных расслоений <span
+class="math inline">\(p_1: E_1 \to B\)</span> и <span
+class="math inline">\(p_2: E_2 \to B\)</span> над одной базой <span
+class="math inline">\(B\)</span> – это гомеоморфизм <span
+class="math inline">\(h: E_1 \to E_2\)</span>, являющийся изоморфизмом
+<span class="math inline">\(p_1^{-1}(b)\)</span> и <span
+class="math inline">\(p^{-1}_2(b)\)</span> для всех <span
+class="math inline">\(b \in B\)</span>. Далее для изоморфных расслоений
+используется обозначение <span class="math inline">\(E_1 \cong
+E_2\)</span>.</p>
+<p>Например, нормальное расслоение <span
+class="math inline">\(S^n\)</span> изоморфно тривиальному расслоению
+<span class="math inline">\(S^n \times \mathbb{R}\)</span> с
+изоморфизмом <span class="math inline">\((x, tx) \mapsto (x,
+t)\)</span>. Касательное расслоение <span
+class="math inline">\(S^1\)</span> изоморфно тривиальному расслоению
+<span class="math inline">\(S^1 \times \mathbb{R}: (e^{i\theta}, it
+e^{i\theta}) \mapsto (e^{i\theta}, t),\,\,\,\, e^{i\theta} \in S^1,
+\,\,\,\, t \in \mathbb{R}\)</span>.</p>
+<p>Расслоение Мёбиуса из примера <span class="math inline">\(2\)</span>
+выше изоморфно каноническому расслоению над <span
+class="math inline">\(\mathbb{R}P^1 \cong S^1\)</span>. <span
+class="math inline">\(\mathbb{R}P^1\)</span> заметается линией,
+поворачивающейся на угол <span class="math inline">\(\pi\)</span>, так
+что векторы в этих линиях заметают прямоугольник <span
+class="math inline">\([0, \pi]\times \mathbb{R}\)</span> с
+отождествленными концами <span class="math inline">\(\{0\}\times
+\mathbb{R}\)</span> и <span class="math inline">\(\{\pi\}\times
+\mathbb{R}\)</span>. Отождествляются точки <span
+class="math inline">\((0, x)\sim (\pi, -x)\)</span>, так как поворот
+вектора на угол <span class="math inline">\(\pi\)</span> дает отрицание
+вектора.</p>
+<h3 data-number="1.1.2" id="сечения">Сечения</h3>
+<p><em>Сечение</em> векторного расслоения <span class="math inline">\(p:
+E \to B\)</span> – это отображение (непрерывное) <span
+class="math inline">\(s: B \to E\)</span>, сопоставляющее каждому <span
+class="math inline">\(b \in B\)</span> вектор <span
+class="math inline">\(v(b)\)</span> в нити <span
+class="math inline">\(p^{-1}(b)\)</span>. Условие <span
+class="math inline">\(v(b) \in p^{-1}(b)\)</span> также может быть
+записано в виде <span class="math inline">\(ps = \mathbb{1}\)</span>.
+Каждое векторное расслоение имеет каноническое <em>нулевое сечение</em>,
+состоящее из нулевых веторов в каждой нити. Часто сечением называется
+образ <span class="math inline">\(s(B) \subset E\)</span>. Посредством
+<span class="math inline">\(p \,\,\,\, s(B)\)</span> гомеоморфно
+проецируется на <span class="math inline">\(B\)</span>.</p>
+<p>Иногда можно доказать неизоморфность расслоений, сравнивая дополнения
+нулевых сечений, так как каждый изоморфизм векторных расслоений должен
+переводить нулевое сечение в нулевое сечение, поэтому дополнения нулевых
+сечений должны быть гомеоморфны (?). Например, расслоение Мёбиуса
+неизоморфно тривиальному расслоению <span
+class="math inline">\(S^1\times \mathbb{R}\)</span>, так как дополнение
+нулевого сечения расслоения Мёбиуса связно, но это не так для <span
+class="math inline">\(S^1\times \mathbb{R}\)</span>. Противоположностью
+нулевого сечения будет являться сечение, чьи значения никогда не
+обращаются в ноль. Не все векторные расслоения имеют такое сечение.
+Рассмотрим, например, касательное расслоение к сфере. Здесь сечение –
+это касательное векторное поле к сфере. Как будет показано в <span
+class="math inline">\(\para 2.2\)</span>, сфера имеет нигде не
+обращающееся в ноль векторное поле, тогда и только тогда, когда <span
+class="math inline">\(n\)</span> нечетно. Из этого следует, что
+касательное расслоение сферы не изоморфно тривиальному расслоению, если
+<span class="math inline">\(n\)</span> четно, так как тривиальное
+расслоение очевидно имеет нигде не обращающееся в ноль векторное поле, а
+изоморфизмы векторных пространств переводят нигде не обращающееся в ноль
+сечения в нигде не обращающееся в ноль сечения.</p>
+<p>На самом деле, <span class="math inline">\(n\)</span>-мерное
+векторное расслоение <span class="math inline">\(p: E \to B\)</span>
+изоморфно тривиальному расслоению, тогда и только тогда когда оно имеет
+<span class="math inline">\(n\)</span> сечений <span
+class="math inline">\(s_1, \ldots, s_n\)</span>, таких, что векторы
+<span class="math inline">\(s_1(b), \ldots, s_n(b)\)</span> линейно
+независимы в каждом <span class="math inline">\(p^{-1}(b)\)</span>. В
+одну сторону это очевидно, так как тривиальное расслоение несомненно
+имеет такие сечения, а изоморфизм векторных расслоений переводит линейно
+независимые векторы в линейно независимые векторы. (? см. eng) В
+обратную сторону, если имеется <span class="math inline">\(n\)</span>
+линейно независимых сечений <span class="math inline">\(s_i\)</span>, то
+отображение <span class="math inline">\(h: B \times \mathbb{R}^n \to
+E\)</span> определяемое как <span class="math inline">\(h(b, t_1,
+\ldots, t_n) = \displaystyle \sum_{i} t_i s_i(b)\)</span> – линейный
+изоморфизм в каждой нити, и непрерывно, так как его композиция с
+локальной тривиализацией <span class="math inline">\(p^{-1}(U) \to U
+\times \mathbb{R}^n\)</span> непрерывно. (?) Следовательно <span
+class="math inline">\(h\)</span> изоморфизм по следующей лемме:</p>
+<div id="lemma-0">
+<p><span class="margin-lft"><strong>Лемма: </strong></span>Непрерывное
+отображения <span class="math inline">\(h: E_1 \to E_2\)</span> между
+векторными пространствами над одной и той же базой <span
+class="math inline">\(B\)</span> – изоморфизм, если <span
+class="math inline">\(h\)</span> переводит каждую нить <span
+class="math inline">\(p_1^{-1}(b)\)</span> в соответствующую нить <span
+class="math inline">\(p_2^{-1}(b)\)</span> с помощью изоморфизма.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<p>Тут доказывается, что касательные расслоения <span
+class="math inline">\(S^1, S^2, S^7\)</span> изоморфны соответствующим
+тривиальным расслоениям сфер. Доказывается с помощью утверждения перед
+леммой.</p>
+<h3 data-number="1.1.3" id="прямые-суммы">Прямые суммы</h3>
+<p>Имея два векторных расслоения <span class="math inline">\(p_1: E_1
+\to B\)</span> и <span class="math inline">\(p_2: E_2 \to B\)</span> над
+одной базой <span class="math inline">\(B\)</span> можно построить
+третье векторное расслоение над <span class="math inline">\(B\)</span>,
+такое что его нити над каждой точкой <span
+class="math inline">\(B\)</span> – это прямые суммы нитей <span
+class="math inline">\(E_1\)</span> и <span
+class="math inline">\(E_2\)</span> над этой точкой. Это приводит к
+определению <em>прямой суммы</em> <span
+class="math inline">\(E_1\)</span> и <span
+class="math inline">\(E_2\)</span>, как пространства <span
+class="math display">\[E_1\oplus E_2 = \{(v_1, v_2)\in E_1\times
+E_2|\,\,\,\, p_1(v_1) = p_2(v_2)\}\]</span> В таком случае определена
+проекция <span class="math inline">\(E_1\oplus E_2 \to B: (v_1, v_2)
+\mapsto p_1(v_1) = p_2(v_2)\)</span>. Нити этой проекции – прямые
+произведения нитей <span class="math inline">\(E_1\)</span> и <span
+class="math inline">\(E_2\)</span>, как и хотелось. Для относительно
+безболезненной проверки условия локальной тривиальности сделаем два
+наблюдения:</p>
+<ol type="a">
+<li>Пусть дано векторное расслоение <span class="math inline">\(p: E \to
+B\)</span> и подмножество <span class="math inline">\(A \subset
+B\)</span>. Имеем <span class="math inline">\(p: p^{-1}(A) \to
+A\)</span> – векторное расслоение. Это <em>ограничение</em> <span
+class="math inline">\(E\)</span> <em>на</em> <span
+class="math inline">\(A\)</span>.</li>
+<li>Пусть даны векторные расслоения <span class="math inline">\(p_1: E_1
+\to B_1\)</span> и <span class="math inline">\(p_2: E_2 \to
+B_2\)</span>. Тогда <span class="math inline">\(p_1\times p_2: E_1\times
+E_2 \to B_1\times B_2\)</span>, также векторное расслоение с нитями
+произведениями <span class="math inline">\(p_1^{-1}(b_1)\times
+p_2^{-1}(b_2)\)</span>. Так если имелись локальные тривиализации <span
+class="math inline">\(h_{\alpha}: p_1^{-1}(U_{\alpha}) \to
+U_{\alpha}\times \mathbb{R}^n\)</span> и <span
+class="math inline">\(h_{\beta}: p_2^{-1}(U_{\beta}) \to U_{\beta}\times
+\mathbb{R}^m\)</span>, то <span class="math inline">\(h_{\alpha}\times
+h_{\beta}\)</span> – это локальная тривиализация <span
+class="math inline">\(E_1\times E_2\)</span>.</li>
+</ol>
+<p>Если <span class="math inline">\(B_1 = B_2 = B\)</span>, то
+ограничение <span class="math inline">\(E_1\times E_2\)</span> на
+диагональ <span class="math inline">\(B = \{(b, b) \in B\times
+B\}\)</span> – в точности <span class="math inline">\(E_1\times
+E_2\)</span>.</p>
+<p>Прямое произведение двух тривиальных расслоений – тривиальное
+расслоение, но прямое произведение нетривиальных пространств может
+являться тривиальным. Например, прямое произведение касательного и
+нормального расслоений над окружностью изоморфно тривиальному расслоению
+<span class="math inline">\(S^n\times \mathbb{R}^{n + 1}\)</span>, так
+как элементы прямой суммы – это тройки <span class="math inline">\((x,
+v, tx) \in S^n \times \mathbb{R}^{n + 1} \times \mathbb{R}^{n +
+1}\)</span> и отображение <span class="math inline">\((x, v, tx) \mapsto
+(x, v + tx)\)</span> – изоморфизм прямой суммы <span
+class="math inline">\(E_1\oplus E_2\)</span> и <span
+class="math inline">\(S^n\times \mathbb{R}^{n + 1}\)</span>. Значит
+касательное расслоение над <span class="math inline">\(S^n\)</span>
+<em>стабильно тривиально</em>, то есть становится тривиальным после
+взятия прямой суммы с тривиальным расслоением.</p>
+<p>Аналогично с касательным и нормальным расслоениями для <span
+class="math inline">\(\mathbb{R}P^n\)</span>.</p>
+<p>Прямая сумма расслоения Мёбиуса с собой – тривиальное расслоение.
+(!)</p>
+<h3 data-number="1.1.4" id="внутренние-произведения">Внутренние
+произведения</h3>
+<p><em>Внутреннее произведение</em> векторного расслоения <span
+class="math inline">\(p: E \to B\)</span> – это отображение <span
+class="math inline">\(\langle, \rangle: E\oplus E \to
+\mathbb{R}\)</span>, ограничение которого на каждую нить дает скалярное
+произведение (inner product), т.е. положительно определенную
+симметрическую билинейную форму.</p>
+<div id="definition-0">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span>Пространство <span class="math inline">\(X\)</span>
+<em>паракомпактно</em>, если оно Хаусдорфово и для каждого открытого
+покрытия существует разбиение единицы, подчиненное этому покрытию, т.е.
+существует набор отображений <span
+class="math inline">\(\varphi_{\beta}: X \to [0, 1]\)</span>, каждое из
+которых имеет носитель (замыкание множества, где <span
+class="math inline">\(\varphi_{\beta}\)</span> не равно нулю),
+содержащийся в некотором множестве открытого покрытия. Также выполняется
+условие, что сумма <span class="math inline">\(\displaystyle
+\sum_{\beta} \varphi_{\beta} = 1\)</span> и только конечное количество
+функций <span class="math inline">\(\varphi_{\beta}\)</span> ненулевые в
+окрестности каждой точки пространства <span
+class="math inline">\(X\)</span>. Несложно построить такие функции с
+помощью леммы Урысона, если <span class="math inline">\(X\)</span>
+компактное хаусдорфово. Это будет сделано в дополнении к этой главе, там
+же будет приведен пример паракомпактного, но не компактного множества.
+Большинство множеств, появляющихся в алгебраической топологии
+паракомпактны.</p>
+</div>
+<div id="statement-0">
+<p><span class="margin-lft"><strong>Утверждение:
+</strong></span>Внутреннее произведение существует для векторного
+расслоения <span class="math inline">\(p: E \to B\)</span>, если <span
+class="math inline">\(B\)</span> компактное Хаусдорфово или более общо
+паракомпактно.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть <span
+class="math inline">\(\{U_{\alpha}\}\)</span> открытое покрытие <span
+class="math inline">\(B\)</span>, для которого существуют локальные
+тривиализации <span class="math inline">\(h_{\alpha}: p^{-1}(U_{\alpha})
+\to U_{\alpha}\times \mathbb{R}^n\)</span>. Они могут быть использованы,
+чтобы перетащить стандартное скалярное произведение в <span
+class="math inline">\(\mathbb{R}^n\)</span> в <span
+class="math inline">\(\langle\dot,\dot\rangle_{\alpha}\)</span> на <span
+class="math inline">\(p^{-1}(U_{\alpha})\)</span>. Внутренне
+произведение на всем <span class="math inline">\(E\)</span> получается
+следующим образом: <span class="math inline">\(\langle v, w \rangle =
+\displaystyle \sum_{\beta} \varphi_{\beta} p(v) \langle v,
+w\rangle_{\alpha(\beta)}\)</span>, где <span
+class="math inline">\(\{\varphi_{\beta}\}\)</span> – разбиение единицы
+подчиненное покрытию <span class="math inline">\(\{U_{\alpha}\}\)</span>
+с носителем <span class="math inline">\(\varphi_{\beta}\)</span>,
+находящимся в <span class="math inline">\(U_{\alpha(\beta)}
+\,\,\,\,\blacksquare\)</span></p>
+</div>
+<p>В случае комплексных векторных расслоений можно построить эрмитово
+скалярное произведение аналогичным образом.</p>
+<p>В линейной алгебре можно показать, что векторное подпространство
+всегда является слагаемым прямой суммы, взяв его ортогональное
+дополнение. Далее будет показано, что соответствующий результат
+выполняется для векторных расслоений над паракомпактной базой.
+<em>Векторное подрасслоение</em> векторного расслоения <span
+class="math inline">\(p: E\to B\)</span> – это подмножество <span
+class="math inline">\(E_0 \subset E\)</span>, пересечение которого с
+каждой нитью – векторное подпространство, такое что ограничение <span
+class="math inline">\(p: E_0 \to B\)</span> является векторным
+расслоением.</p>
+<div id="statement-1">
+<p><span class="margin-lft"><strong>Утверждение: </strong></span>Если
+<span class="math inline">\(E \to B\)</span> векторное расслоение над
+паракомпактной базой <span class="math inline">\(B\)</span> и <span
+class="math inline">\(E_0 \subset E\)</span> векторное подрасслоение, то
+существует векторное подрасслоение <span
+class="math inline">\(E_0^{\perp} \subset E\)</span>, такое что <span
+class="math inline">\(E \cong E_0\oplus E_0^{\perp}\)</span>.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> По
+предыдущему утверждению выбираем внутреннее произведение, затем строим
+<span class="math inline">\(E_0^{\perp}\)</span>, каждая нить которого
+состоит из векторов ортогональных к нити в <span
+class="math inline">\(E_0\)</span>. Докажем, что <span
+class="math inline">\(p_{|E_0^{\perp}}\)</span> векторное расслоение.
+Если это так, то <span class="math inline">\(E \cong E_0\oplus
+E_0^{\perp}\)</span> при помощи изоморфизма <span
+class="math inline">\((v, w) \mapsto v + w\)</span> по лемме 1.</p>
+<p>Нужно проверить условие локальной тривиальности. (?) можем
+рассматривать конкретный слой. Так как <span
+class="math inline">\(E_0\)</span> векторное расслоение размерности
+<span class="math inline">\(m\)</span>, например, существует <span
+class="math inline">\(m\)</span> линейно независимых сечений <span
+class="math inline">\(s_1, \ldots, s_m\)</span>. Можно дополнить <span
+class="math inline">\(s_1(b_0), \ldots, s_m(b_0)\)</span> до <span
+class="math inline">\(n\)</span> векторов <span
+class="math inline">\(s_1(b_0), \ldots, s_m(b_0), \ldots,
+s_n(b_0)\)</span> сначала в нити <span
+class="math inline">\(p^{-1}(b_0)\)</span>. Из непрерывности
+определителя следует, что в некоторой окрестности <span
+class="math inline">\(b_0\)</span> можно рассматривать те же векторы
+<span class="math inline">\(s_1(b_0), \ldots, s_m(b_0), \ldots,
+s_n(b_0)\)</span> и они так же будут линейно независимы. Используя
+ортогонализацию Грама-Шмидта в каждой нити этой окрестности можно
+получить ортогональный базис <span class="math inline">\(s_1&#39;(b_0),
+\ldots, s_m&#39;(b_0), \ldots, s_n&#39;(b_0)\)</span>. <span
+class="math inline">\(s_i&#39;\)</span> непрерывны, что следует из
+формул для ортогонализации. Определим <span class="math inline">\(h:
+p^{-1}(U) \to U \times \mathbb{R}^n\)</span>, так <span
+class="math inline">\(h(b, s_i(b))\)</span> – это стандартный <span
+class="math inline">\(i\)</span>-базисный вектор в <span
+class="math inline">\(\mathbb{R}^n\)</span>.</p>
+</div>
+<div id="statement-2">
+<p><span class="margin-lft"><strong>Утверждение: </strong></span>Для
+каждого вектрного расслоения <span class="math inline">\(p: E \to
+B\)</span> над компактным Хаусдорфовым пространством <span
+class="math inline">\(B\)</span> существует векторное расслоение <span
+class="math inline">\(E&#39;\)</span>, такое что <span
+class="math inline">\(E\oplus E&#39;\)</span> тривиальное
+расслоение.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<h3 data-number="1.1.5" id="тензорные-произведения">Тензорные
+произведения</h3>
+<h3 data-number="1.1.6" id="локально-тривиальные-расслоения">Локально
+тривиальные расслоения</h3>
+<h2 data-number="1.2"
+id="классификация-векторных-расслоений">Классификация векторных
+расслоений</h2>
+<h3 data-number="1.2.1" id="pullback-расслоения">Pullback
+расслоения</h3>
+<p>Будем обозначать классы изоморфизмов <span
+class="math inline">\(n\)</span>-мерных векторных расслоений над <span
+class="math inline">\(B\)</span> через <span
+class="math inline">\(\operatorname{Vect}^n(B)\)</span>. Компклексный
+аналог обозначается <span
+class="math inline">\(\operatorname{Vect}_{\mathbb{C}}^n(B)\)</span>.</p>
+<div id="statement-3">
+<p><span class="margin-lft"><strong>Утверждение: </strong></span>Пусть
+<span class="math inline">\(p: E \to B\)</span> векторное расслоение.
+<span class="math inline">\(f: A \to B\)</span> – отображение. Тогда
+существует векторное расслоение <span class="math inline">\(p: E&#39;
+\to A\)</span> и отображение <span class="math inline">\(f^{*}: E&#39;
+\to E\)</span>, такие что <span class="math inline">\(f&#39;:
+p&#39;^{-1}(a) \to p^{-1}(b)\)</span> изомоморфизм. Причем такое
+расслоение единственно с точностью до изоморфизма.</p>
+<p>Если построено <span class="math inline">\(E&#39;\)</span> и есть
+расслоение <span class="math inline">\(p&#39;&#39;: E&#39;&#39; \to
+B\)</span> изоморфное <span class="math inline">\(p: E \to B\)</span>
+посредством <span class="math inline">\(h\)</span>, то <span
+class="math inline">\(E&#39;\)</span> подходит в качестве поднятия для
+<span class="math inline">\(p&#39;&#39;: E&#39;&#39; \to B\)</span> с
+<span class="math inline">\(F^{*} = f^{*}\circ h\)</span>. Поэтому
+имеется функция <span class="math inline">\(f^{*}:
+\operatorname{Vect}(B) \to \operatorname{Vect}(A)\)</span>, переводящее
+класс изоморфности <span class="math inline">\(E\)</span> в класс
+изоморфности <span class="math inline">\(E&#39;\)</span>. Часто <span
+class="math inline">\(E&#39;\)</span> обозначается <span
+class="math inline">\(E\)</span> и называется <em>индуцированное</em>
+<span class="math inline">\(f\)</span> расслоение или <em>pullback</em>
+<span class="math inline">\(E\)</span>.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Явно строим
+pullback: <span class="math inline">\(E&#39; = \{(a, v) \in A \times E|
+\,\,\,\, f(a) = p(v)\}\)</span>. <span class="math inline">\(p&#39;(a,
+v) = a\)</span> и <span class="math inline">\(f&#39;(a, v) = v\)</span>.
+Имеем <span class="math inline">\(f&#39;p = p&#39;f\)</span>.</p>
+<p>Пусть <span class="math inline">\(\Gamma_f = \{(a, f(a)) \in A\times
+B\}\)</span>. Тогда <span class="math inline">\(p&#39;\)</span>
+раскладывается в композицию отображение <span
+class="math inline">\(E&#39; \to \Gamma_f \to A: (a, v) \mapsto (a,
+p(v)) = (a, f(a)) \mapsto a\)</span>. Первое отображение <span
+class="math inline">\((a, v) \mapsto (a, p(v))\)</span> – это
+ограничение векторного расслоения <span
+class="math inline">\(\mathbb{1}\times p: A\times E \to A \times
+B\)</span> на <span class="math inline">\(\Gamma_f\)</span>, а второе
+отображение <span class="math inline">\((a, f(a)) \mapsto a\)</span> –
+гомеоморфизм, поэтому их композиция <span
+class="math inline">\(p&#39;\)</span> – векторное расслоение. Совсем
+банально проверяется, что <span class="math inline">\(f&#39;:
+p&#39;^{-1}(a) \to p^{-1}(b)\)</span> изомоморфизм.</p>
+</div>
+<p>Pullback тривиального расслоения – тривиальное расслоение.</p>
+<p>Примеры pullback’ов:</p>
+<ol type="1">
+<li>Ограничение векторного расслоения на подмножество может быть
+рассмотрено как pullback относительно отображения включения.</li>
+<li>Если <span class="math inline">\(f: A \to B: a \mapsto b_0\)</span>,
+где <span class="math inline">\(b_0\)</span> – фиксированная точка, то
+pullback – это тривиальное расслоение <span
+class="math inline">\(A\times p^{-1}(b)\)</span>.</li>
+<li>Касательное расслоение сферы – это pullback касательного расслоения
+проективной плоскости относительно отображения факторизации.</li>
+<li>расслоение Мёбиуса</li>
+<li></li>
+</ol>
+<p>Простейшие свойства pullback’ов:</p>
+<ol type="1">
+<li><span class="math inline">\((fg)^{*}(E) \cong
+g^{*}f^{*}(E)\)</span></li>
+<li><span class="math inline">\(\mathbb{1}^{*}(E) \cong E\)</span></li>
+<li><span class="math inline">\(f^{*}(E_1 \oplus E_2) \cong
+f^{*}(E_1)\oplus f^{*}(E_2)\)</span></li>
+<li><span class="math inline">\(f^{*}(E_1 \otimes E_2) \cong
+f^{*}(E_1)\otimes f^{*}(E_2)\)</span></li>
+</ol>
+<div id="theorem-0">
+<p><span class="margin-lft"><strong>Теорема: </strong></span>Пусть <span
+class="math inline">\(p: E \to B\)</span> – векторное расслоение и
+отображения <span class="math inline">\(f_0: A \to B\)</span> и <span
+class="math inline">\(f_1: A \to B\)</span> гомотопны. Тогда <span
+class="math inline">\(f_0^{*}(E)\)</span> изоморфно <span
+class="math inline">\(f_1^{*}(E)\)</span>, если <span
+class="math inline">\(A\)</span> компактное хаусдорфово или, более общо,
+паракомпактно.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть <span
+class="math inline">\(F: A \times I \to B\)</span> гомотопия <span
+class="math inline">\(f_0\)</span> и <span
+class="math inline">\(f_1\)</span>. Тогда ограничения <span
+class="math inline">\(F^{*}(E)\)</span> на <span
+class="math inline">\(A\times  \{0\}\)</span> и <span
+class="math inline">\(A\times \{1\}\)</span> – это <span
+class="math inline">\(f_0^{*}(E)\)</span> и <span
+class="math inline">\(f_1^{*}(E)\)</span>. То есть теорема является
+следствием следующего утверждения:</p>
+</div>
+<div id="statement-4">
+<p><span class="margin-lft"><strong>Утверждение:
+</strong></span>Ограничения векторного расслоения <span
+class="math inline">\(p: E \to A \times I\)</span> на <span
+class="math inline">\(A\times \{0\}\)</span> и <span
+class="math inline">\(A \times \{1\}\)</span> изоморфны, если <span
+class="math inline">\(A\)</span> – паракомпактно.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<div id="corollary-0">
+<p><span class="margin-lft"><strong>Следствие:
+</strong></span>Гомотопическая эквивалентность <span
+class="math inline">\(f: A \to B\)</span> паракомпактных пространств
+индуцирует биекцию <span class="math inline">\(f^{*}:
+\operatorname{Vect}^n(B) \to \operatorname{Vect}^n(A)\)</span>. В
+частности каждое векторное расслоение над стягиваемым пространством
+тривиально.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> см. свойства
+и примеры pullback’ов 2.</p>
+</div>
+<h3 data-number="1.2.2" id="clutching-functions">Clutching
+functions</h3>
+<p>Что такое непрерывное семейство? Что это за теорема? Существует ли
+фактор расслоение, то есть можно ли по расслоению некоторого
+пространства построить расслоение фактор-пространства? Можете ли вы по
+картинке в конференции Мёбиуса понять, что это за пространство?</p>
+<p>Себе:</p>
+<p>Гомеоморфизм с Мёбиусом и лентой</p>
+<p>кривые переводы:</p>
+<p>fiber inner product local trivialization partition of unity
+subordinate to the cover section</p>
+
+
+<nav id="sitenav">
+    <div class="sitenav_right">
+        <span class="navlink">
+                        <a href="index.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                    </span>
+    </div>
+</nav>
+
+</body>
+</html>
