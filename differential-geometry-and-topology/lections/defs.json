@@ -1,2 +1,197 @@
-
+[
+    {
+        "keyword": "связное связно",
+        "html": "<p><a href=\"связность-и-линейная-связность.html#definition-0\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nТопологическое пространство <span class=\"math inline\">\\(X\\)</span>\n<em>связное</em>, если его нельзя представить в виде объединения двух\nоткрытых непересекающихся непустых подмножеств.</p>\n<p><span class=\"math inline\">\\(A \\subset X\\)</span> <em>связно</em>,\nесли <span class=\"math inline\">\\(A\\)</span> связно в индуцированной\nтопологии.</p>",
+        "url": "связность-и-линейная-связность.html#definition-0"
+    },
+    {
+        "keyword": "замыкание",
+        "html": "<p><a href=\"связность-и-линейная-связность.html#definition-3\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Замыкание</em> множества <span class=\"math inline\">\\(A \\subset\nX\\)</span> – это наименьшее замкнутое множество, содержащее <span\nclass=\"math inline\">\\(A\\)</span>, или пересечение всех замкнутых\nмножеств, содержащих <span class=\"math inline\">\\(A\\)</span>, или\nобъединение <span class=\"math inline\">\\(A \\cup \\{x \\in X: x\\)</span> –\nпредельная точка <span class=\"math inline\">\\(A\\}\\)</span>, то есть такая\nточка, что любая ее окрестность содержит точку <span\nclass=\"math inline\">\\(A\\)</span>.</p>\n<p>Замыкание <span class=\"math inline\">\\(A\\)</span> обозначается <span\nclass=\"math inline\">\\(\\operatorname{Cl}A\\)</span> или <span\nclass=\"math inline\">\\(\\overline{A}\\)</span>.</p>",
+        "url": "связность-и-линейная-связность.html#definition-3"
+    },
+    {
+        "keyword": "кривая",
+        "html": "<p><a href=\"связность-и-линейная-связность.html#definition-2\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Кривая</em> – это непрерывное отображение <span\nclass=\"math inline\">\\(\\gamma: [0, 1] \\to X\\)</span> или образ этого\nотображения.</p>",
+        "url": "связность-и-линейная-связность.html#definition-2"
+    },
+    {
+        "keyword": "линейно связное",
+        "html": "<p><a href=\"связность-и-линейная-связность.html#definition-1\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nТопологическое пространство <span class=\"math inline\">\\(X\\)</span>\n<em>линейно связное</em>, если любые его две точки можно соединить\nкривой.</p>",
+        "url": "связность-и-линейная-связность.html#definition-1"
+    },
+    {
+        "keyword": "гладкое в точке",
+        "html": "<p><a href=\"гладкое-многообразие.html#definition-5\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nОтображение <span class=\"math inline\">\\(f: \\mathbb{R}^n \\to\n\\mathbb{R}^m: (x_1, \\ldots, x_n) \\mapsto \\left(\\begin{array}{c}f_1(x_1,\n\\ldots, x_n)\\\\\\vdots\\\\f_m(x_1, \\ldots, x_n)\\end{array}\\right)\\)</span> –\n<em>гладкое в точке</em> <span class=\"math inline\">\\(x_0 = (x_{01},\n\\ldots, x_{0n})\\)</span>, если <span class=\"math inline\">\\(f\\)</span>\nнепрерывно и все его частные производные любых порядков непрерывны.</p>",
+        "url": "гладкое-многообразие.html#definition-5"
+    },
+    {
+        "keyword": "гладкое",
+        "html": "<p><a href=\"гладкое-многообразие.html#definition-6\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nОтображение <span class=\"math inline\">\\(f: X \\to Y\\)</span>\n<em>гладкое</em>, если у каждой точки <span class=\"math inline\">\\(x \\in\nX\\)</span> существует окрестность <span class=\"math inline\">\\(U\\)</span>\nи отображение <span class=\"math inline\">\\(F\\)</span>, такие что <span\nclass=\"math inline\">\\(F\\)</span> гладкое в точке <span\nclass=\"math inline\">\\(x\\)</span> и <span\nclass=\"math inline\">\\(f\\)</span> совпадает с <span\nclass=\"math inline\">\\(F\\)</span> на <span\nclass=\"math inline\">\\(U\\)</span>.</p>",
+        "url": "гладкое-многообразие.html#definition-6"
+    },
+    {
+        "keyword": "гладкое многообразие атлас карты координатные отображения функции склейки",
+        "html": "<p><a href=\"гладкое-многообразие.html#definition-4\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Гладкое многообразие</em> – это хаусдорфово топологическое\nпространство <span class=\"math inline\">\\(X\\)</span> со счетной базой и\nатлас на нем.</p>\n<p><em>Атлас</em> – это множество <span\nclass=\"math inline\">\\((U_{\\alpha}, \\varphi_{\\alpha})\\)</span>, где <span\nclass=\"math inline\">\\(U_{\\alpha}\\)</span> – открытое связное\nподмножество <span class=\"math inline\">\\(X\\)</span> и <span\nclass=\"math inline\">\\(\\varphi_{\\alpha}: U_{\\alpha} \\to\nV_{\\alpha}\\)</span>, <span class=\"math inline\">\\(V_{\\alpha}\\)</span> –\nоткрытое связное подмножество <span\nclass=\"math inline\">\\(\\mathbb{R}^n\\)</span>, с условиями:</p>\n<ol type=\"1\">\n<li><span class=\"math inline\">\\(\\cup_{\\alpha}U_{\\alpha} =\nX\\)</span>.</li>\n<li><span class=\"math inline\">\\(\\varphi_{\\alpha}\\)</span> – гомеоморфизм\n<span class=\"math inline\">\\(U_{\\alpha}\\)</span> и <span\nclass=\"math inline\">\\(V_{\\alpha}\\)</span>.</li>\n<li>Если <span class=\"math inline\">\\(U_{\\alpha}\\)</span> и <span\nclass=\"math inline\">\\(U_{\\beta}\\)</span> пересекаются, то отображение\n<span class=\"math inline\">\\(f =\n\\varphi_{\\beta}\\circ\\varphi_{\\alpha}^{-1}\\)</span> (ограниченное на\nпересечение) областей в <span\nclass=\"math inline\">\\(\\mathbb{R}^n\\)</span> гладкое.</li>\n</ol>\n<p>Области <span class=\"math inline\">\\(U_{\\alpha}\\)</span> называются\n<em>карты</em>, отображения <span\nclass=\"math inline\">\\(\\varphi_{\\alpha}\\)</span> – <em>координатные\nотображения</em>, композиции <span\nclass=\"math inline\">\\(\\varphi_{\\beta}\\circ\\varphi_{\\alpha}^{-1}\\)</span>\n– <em>функции склейки</em>.</p>",
+        "url": "гладкое-многообразие.html#definition-4"
+    },
+    {
+        "keyword": "эквивалентны структура гладкости",
+        "html": "<p><a href=\"гладкое-многообразие.html#definition-7\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nДва атласа на многообразии <em>эквивалентны</em>, если их объединение –\nатлас.</p>\n<p><em>Структура гладкости</em> на многообразии – это класс\nэквивалентности атласов.</p>",
+        "url": "гладкое-многообразие.html#definition-7"
+    },
+    {
+        "keyword": "гладкая в точке",
+        "html": "<p><a href=\"гладкие-отображения.html#definition-10\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<span class=\"math inline\">\\(f: M \\to \\mathbb{R}\\)</span> – <em>гладкая в\nточке</em> <span class=\"math inline\">\\(P\\)</span>, если для некоторой\nкарты <span class=\"math inline\">\\(U_{\\alpha}\\)</span>, содержащей <span\nclass=\"math inline\">\\(P\\)</span> с координатным гомеоморфизмом <span\nclass=\"math inline\">\\(\\varphi_{\\alpha}\\)</span>, композиция <span\nclass=\"math inline\">\\(f\\circ\\varphi_{\\alpha}^{-1}\\)</span> гладкая\nфункция на <span class=\"math inline\">\\(V_{\\alpha}\\)</span>.</p>",
+        "url": "гладкие-отображения.html#definition-10"
+    },
+    {
+        "keyword": "гладкое",
+        "html": "<p><a href=\"гладкие-отображения.html#definition-8\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nОтображение <span class=\"math inline\">\\(f: M \\to N\\)</span>, где <span\nclass=\"math inline\">\\(\\dim M = m\\)</span> и <span\nclass=\"math inline\">\\(\\dim N = n\\)</span> – <em>гладкое</em>, если для\nлюбых карт <span class=\"math inline\">\\(U_{\\alpha},\n\\varphi_{\\alpha}\\)</span> в <span class=\"math inline\">\\(M\\)</span> и\n<span class=\"math inline\">\\(V_{\\alpha}, \\psi_{\\alpha}\\)</span> в <span\nclass=\"math inline\">\\(N\\)</span> отображение <span\nclass=\"math inline\">\\(\\psi_{\\alpha}\\circ\nf\\circ\\varphi_{\\alpha}^{-1}\\)</span> гладкое.</p>",
+        "url": "гладкие-отображения.html#definition-8"
+    },
+    {
+        "keyword": "диффеоморфизм",
+        "html": "<p><a href=\"гладкие-отображения.html#definition-8\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nОтображение <span class=\"math inline\">\\(f: M \\to N\\)</span> биективное и\nгладкое в обе стороны – <em>диффеоморфизм</em>.</p>",
+        "url": "гладкие-отображения.html#definition-8"
+    },
+    {
+        "keyword": "поверхность уровня",
+        "html": "<p><a href=\"гладкие-отображения.html#definition-11\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПусть <span class=\"math inline\">\\(f: \\mathbb{R}^n \\to\n\\mathbb{R}\\)</span> – гладкая функция. <em>Поверхность уровня</em> <span\nclass=\"math inline\">\\(t \\in \\mathbb{R}\\)</span> – это <span\nclass=\"math inline\">\\(f^{-1}(t)\\)</span>.</p>",
+        "url": "гладкие-отображения.html#definition-11"
+    },
+    {
+        "keyword": "касательный вектор в точке",
+        "html": "<p><a href=\"касательные-векторы.html#definition-15\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Касательный вектор в точке</em> <span\nclass=\"math inline\">\\(P\\)</span> многообразия <span\nclass=\"math inline\">\\(M\\)</span> – это соответствие <span\nclass=\"math inline\">\\(\\{U_{\\alpha}| \\,\\,\\,\\, P \\in U_{\\alpha}\\} \\to\n\\mathbb{R}^n: U_{\\alpha} \\mapsto (\\xi^1_{\\alpha}, \\ldots,\n\\xi^n_{\\alpha})\\)</span>, такое, что <span\nclass=\"math inline\">\\(\\xi_{\\beta}^i = \\frac{\\partial\n\\xi_{\\beta}^i}{\\partial \\xi_{\\alpha}^j} \\xi_{\\alpha}^j\\)</span>.</p>\n<p>Множество касательных векторов в точке <span\nclass=\"math inline\">\\(P\\)</span> образуют векторное пространство.</p>",
+        "url": "касательные-векторы.html#definition-15"
+    },
+    {
+        "keyword": "соприкасаются в точке",
+        "html": "<p><a href=\"касательные-векторы.html#definition-12\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nКривые <span class=\"math inline\">\\(\\gamma_1: [-1, 1] \\to M\\)</span> и\n<span class=\"math inline\">\\(\\gamma_2: [-1, 1] \\to M\\)</span>\n<em>соприкасаются в точке</em> <span class=\"math inline\">\\(P\\)</span>,\nесли <span class=\"math inline\">\\(\\gamma_1(0) = \\gamma_2(0) = P\\)</span>\nи для некторой системы координат <span class=\"math inline\">\\(U\\)</span>,\nсодержащей точку <span class=\"math inline\">\\(P\\)</span>, выполнено <span\nclass=\"math inline\">\\(\\displaystyle \\sum_{k = 1}^{n}(x^k(\\gamma_1(t)) -\nx^k(\\gamma_2(t)))^2 = o(t^2), \\,\\,\\,\\, t \\to 0\\)</span>.</p>\n<p>Почему такое определение? Потому, что раскладываем в ряд Тейлора в\nнуле функцию <span class=\"math inline\">\\(\\displaystyle \\sum_{k =\n1}^{n}(x^k(\\gamma_1(t)) - x^k(\\gamma_2(t)))^2\\)</span> первые члены\nнулевые из-за условия на начальную точку, а производные совпадают, чтобы\nвыполнялось условие <span class=\"math inline\">\\(\\displaystyle \\sum_{k =\n1}^{n}(x^k(\\gamma_1(t)) - x^k(\\gamma_2(t)))^2 = o(t^2), \\,\\,\\,\\, t \\to\n0\\)</span>. То есть соприкасающиеся кривые – это такие, у которых в\nточке <span class=\"math inline\">\\(P\\)</span> сонаправленные векторы\nскорости.</p>\n<p>Чтобы ввести структуру векторного пространства на классах\nэквивалентности кривых нужно построить биективное отображение в <span\nclass=\"math inline\">\\(\\mathbb{R}^n\\)</span>.</p>",
+        "url": "касательные-векторы.html#definition-12"
+    },
+    {
+        "keyword": "касательный вектор в точке",
+        "html": "<p><a href=\"касательные-векторы.html#definition-13\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Касательный вектор в точке</em> <span\nclass=\"math inline\">\\(P\\)</span> – это класс эквивалентности\nсоприкасающихся в точке <span class=\"math inline\">\\(P\\)</span>\nкривых.</p>",
+        "url": "касательные-векторы.html#definition-13"
+    },
+    {
+        "keyword": "оператор дифференцирования в точке задан на ростках функций ньютон-лейбниц",
+        "html": "<p><a href=\"касательные-векторы.html#definition-14\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Оператор дифференцирования</em> <span\nclass=\"math inline\">\\(D\\)</span> <em>в точке</em> <span\nclass=\"math inline\">\\(P\\)</span> многообразия <span\nclass=\"math inline\">\\(M\\)</span> – это линейный функционал на\nпространстве гладких функций на многообразии <span\nclass=\"math inline\">\\(D: C^{\\infty}(M) \\to \\mathbb{R}\\)</span>, такой\nчто:</p>\n<ol type=\"1\">\n<li><span class=\"math inline\">\\(Df = Dg\\)</span>, если <span\nclass=\"math inline\">\\(f = g\\)</span> в некоторой окрестности точки <span\nclass=\"math inline\">\\(P\\)</span>. (<em>задан на ростках\nфункций</em>)</li>\n<li><span class=\"math inline\">\\(D(fg) = f(P) Dg + g(P) Df\\)</span>\n(<em>Ньютон-Лейбниц</em>)</li>\n</ol>\n<p>Тут структура векторного пространства вводится легко, но непонятно,\nпочему это пространство конечномерно, а тем более <span\nclass=\"math inline\">\\(n\\)</span>-мерно.</p>",
+        "url": "касательные-векторы.html#definition-14"
+    },
+    {
+        "keyword": "касательный вектор в точке",
+        "html": "<p><a href=\"касательные-векторы.html#definition-16\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Касательный вектор в точке</em> <span\nclass=\"math inline\">\\(P\\)</span> – это оператор дифференцирования в\nточке <span class=\"math inline\">\\(P\\)</span>.</p>",
+        "url": "касательные-векторы.html#definition-16"
+    },
+    {
+        "keyword": "",
+        "html": "<p><a href=\"касательные-векторы.html#definition-25\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПусть <span class=\"math inline\">\\((U, \\varphi)\\)</span> система\nкоординат в точке <span class=\"math inline\">\\(P\\)</span> многообразия\n<span class=\"math inline\">\\(N\\)</span>, а <span\nclass=\"math inline\">\\((V, \\psi)\\)</span> система координат в точке <span\nclass=\"math inline\">\\(f(P)\\)</span> многообразия <span\nclass=\"math inline\">\\(M\\)</span>. Тогда в окрестности точки <span\nclass=\"math inline\">\\(P\\)</span> <span class=\"math inline\">\\(f =\n(f^1(x^1, \\ldots, x^n), \\ldots, f^m(x^1, \\ldots, x^n))\\)</span> Тогда\n<span class=\"math inline\">\\(Y = (d_Pf)(X) = \\left(\\frac{\\partial\nf^i}{\\partial x^j}\\right)_{i = 1, \\ldots, m, \\,\\,\\,\\, j = 1, \\ldots,\nn}\\cdot X\\)</span>.</p>",
+        "url": "касательные-векторы.html#definition-25"
+    },
+    {
+        "keyword": "регулярная регулярное значение",
+        "html": "<p><a href=\"касательные-векторы.html#definition-17\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПусть <span class=\"math inline\">\\(f: M \\to N\\)</span> – гладкое\nотображение. Точка <span class=\"math inline\">\\(P \\in M\\)</span>\n<em>регулярная</em>, если <span class=\"math inline\">\\(d_{P}F\\)</span>\nэпиморфизм (отображение на / сюръекция).</p>\n<p>Точка <span class=\"math inline\">\\(Q \\in N\\)</span> – <em>регулярное\nзначение</em>, если ее прообраз <span\nclass=\"math inline\">\\(f^{-1}(Q)\\)</span> состоит из регулярных\nточек.</p>\n<p>Множество регулярных значений отображения <span\nclass=\"math inline\">\\(f\\)</span> обозначается <span\nclass=\"math inline\">\\(R(f)\\)</span>.</p>",
+        "url": "касательные-векторы.html#definition-17"
+    },
+    {
+        "keyword": "погружение вложение",
+        "html": "<p><a href=\"касательные-векторы.html#definition-18\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nОтображение <span class=\"math inline\">\\(f: M \\to N\\)</span> –\n<em>погружение</em>, если <span class=\"math inline\">\\(d_Pf\\)</span>\nмономорфизм (инъекция) в каждой точке.</p>\n<p>Отображение <span class=\"math inline\">\\(f: M \\to N\\)</span> –\n<em>вложение</em>, если <span class=\"math inline\">\\(f\\)</span> –\nпогружение, <span class=\"math inline\">\\(f(M)\\)</span> – замкнутое\nподмножество <span class=\"math inline\">\\(N\\)</span>, <span\nclass=\"math inline\">\\(f\\)</span> – гомеоморфизм на образ.</p>",
+        "url": "касательные-векторы.html#definition-18"
+    },
+    {
+        "keyword": "подмногообразием нормальным",
+        "html": "<p><a href=\"касательные-векторы.html#definition-19\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПодмножество <span class=\"math inline\">\\(L\\)</span> многообразия <span\nclass=\"math inline\">\\(M\\)</span> является <em>подмногообразием</em>,\nесли на многообразии <span class=\"math inline\">\\(M\\)</span> существует\nатлас <span class=\"math inline\">\\(\\{U_{\\alpha}\\}\\)</span> и существует\n<span class=\"math inline\">\\(l\\)</span>, такие что <span\nclass=\"math inline\">\\(\\{L \\cap U_{\\alpha}\\}\\)</span> – атлас на <span\nclass=\"math inline\">\\(L\\)</span> и <span\nclass=\"math inline\">\\(\\varphi_{\\alpha}(U_{\\alpha}\\cap L) = V_{\\alpha}\n\\cap \\mathbb{R}^l\\)</span>.</p>\n<p>Такой атлас называется <em>нормальным</em>.</p>",
+        "url": "касательные-векторы.html#definition-19"
+    },
+    {
+        "keyword": "многообразие с краем край",
+        "html": "<p><a\nhref=\"ориентированное-многообразие-с-краем.html#definition-20\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Многообразие с краем</em> – это многообразие, в котором <span\nclass=\"math inline\">\\(\\mathbb{R}^n\\)</span> в определении заменено на\n<span class=\"math inline\">\\(\\mathbb{R}^{n - 1}\\times [0,\n+\\infty)\\)</span>.</p>\n<p><em>Край</em> – множество точек многообразия с <span\nclass=\"math inline\">\\(x^n(P) = 0\\)</span>. (Надо проверить, что\nопределение не зависит от выбора локальной системы координат.)</p>\n<p>Край – это подмногообразие размерности <span class=\"math inline\">\\(n\n- 1\\)</span> (в качестве карт берем пересечения карт на многообразии и\nкарт края.)</p>",
+        "url": "ориентированное-многообразие-с-краем.html#definition-20"
+    },
+    {
+        "keyword": "ориентация многообразия ориентируемое",
+        "html": "<p><a\nhref=\"ориентированное-многообразие-с-краем.html#definition-21\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a> В\nданном определении многообразие – это множество плюс структура гладкости\n(класс эквивалентных атласов) на нем.</p>\n<p><em>Ориентация многообразия</em> – это выбор конкретного атласа из\nструктуры гладкости, такого что все якобианы функций перехода во всех\nточках имеют один знак.</p>\n<p>Если ориентация существует, то многообразие\n<em>ориентируемое</em>.</p>\n<p>В точке всегда можно сделать знак якобиана любым, потому что если,\nнапример, он отрицательный, то берем и заменяем <span\nclass=\"math inline\">\\(y^1(x^1, \\ldots, x^n)\\)</span> на <span\nclass=\"math inline\">\\(-y^1(x^1, \\ldots, x^n)\\)</span> (рассматриваем\nэквивалентный атлас, в котором такие координатные функции), тогда в\nякобиане первая строчка умножится на <span\nclass=\"math inline\">\\(-1\\)</span> и, следовательно, знак поменяется.</p>",
+        "url": "ориентированное-многообразие-с-краем.html#definition-21"
+    },
+    {
+        "keyword": "ориентация многообразия",
+        "html": "<p><a\nhref=\"ориентированное-многообразие-с-краем.html#definition-24\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Ориентация многообразия</em> – это выбор ориентации касательного\nпространства в каждой точке, такой что для каждой точки <span\nclass=\"math inline\">\\(P\\)</span> существует окрестность <span\nclass=\"math inline\">\\((U, \\varphi)\\)</span>, такие что для каждой точки\n<span class=\"math inline\">\\(P\\)</span> из <span\nclass=\"math inline\">\\(U\\)</span> изоморфизм <span\nclass=\"math inline\">\\(d_P\\varphi\\)</span> касательного пространства и\n<span class=\"math inline\">\\(\\mathbb{R}^n\\)</span> переводит выбранный\nбазис в базис с положительной ориентацией.</p>",
+        "url": "ориентированное-многообразие-с-краем.html#definition-24"
+    },
+    {
+        "keyword": "дезориентирующий",
+        "html": "<p><a\nhref=\"ориентированное-многообразие-с-краем.html#definition-22\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПуть на многообразии <em>дезориентирующий</em>, если существует набор\nкарт, покрывающий путь, такой что все якобианы вдоль пути положительны,\nкроме одного, и пересечения любых двух карт из набора связно.</p>",
+        "url": "ориентированное-многообразие-с-краем.html#definition-22"
+    },
+    {
+        "keyword": "риманова метрика",
+        "html": "<p><a href=\"риманова-метрика.html#definition-23\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Риманова метрика</em> на многообразии – это задание скалярного\nпроизведения в касательном пространстве к каждой точке, так чтобы\nфункции <span\nclass=\"math inline\">\\(g_{ij}\\circ\\varphi_{\\alpha}^{-1}\\)</span> были\nгладкими.</p>\n<blockquote>\n<p>Задать скалярное произведение в касательном пространстве в точке\n<span class=\"math inline\">\\(P\\)</span> для всех точек многообразия – это\nзначит задать отображения <span class=\"math inline\">\\(g_{ij}: M \\to\n\\mathbb{R}, \\,\\,\\,\\, i = 1, \\ldots, n, \\,\\,\\,\\, j = 1, \\ldots,\nn\\)</span>.</p>\n</blockquote>",
+        "url": "риманова-метрика.html#definition-23"
+    },
+    {
+        "keyword": "риманова метрика",
+        "html": "<p><a href=\"риманова-метрика.html#definition-26\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Риманова метрика</em> на многобразии – это задание в каждой точке\n<span class=\"math inline\">\\(P\\)</span> каждой системы координат <span\nclass=\"math inline\">\\(U_{\\alpha}\\)</span> <span\nclass=\"math inline\">\\(n^2\\)</span> функций <span\nclass=\"math inline\">\\(g^{\\alpha}_{ij}(P)\\)</span>, таких что:</p>\n<ol type=\"1\">\n<li><p>матрица <span\nclass=\"math inline\">\\(\\left(g^{\\alpha}_{ij}(P)\\right)_{i=1, \\ldots, n,\n\\,\\,\\,\\, j = 1, \\ldots, n}\\)</span> симметрическая положительно\nопределенная для любых <span class=\"math inline\">\\(P \\in M, \\,\\,\\,\\,\nU_{\\alpha}\\)</span> из атласа.</p></li>\n<li><p>для любых двух систем координат <span\nclass=\"math inline\">\\((U_{\\alpha}, \\varphi_{\\alpha})\\)</span> и <span\nclass=\"math inline\">\\((U_{\\beta}, \\varphi_{\\beta})\\)</span> выполнено\n<span class=\"math inline\">\\(g^{\\beta}_{ij} = g^{\\alpha}_{ij}\\cdot\n\\frac{\\partial x^i_{\\alpha}}{\\partial x^i_{\\beta}}\\cdot \\frac{\\partial\nx^j_{\\alpha}}{\\partial x^j_{\\beta}}\\)</span></p></li>\n</ol>",
+        "url": "риманова-метрика.html#definition-26"
+    },
+    {
+        "keyword": "билинейная форма",
+        "html": "<p><a href=\"риманова-метрика.html#definition-27\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Билинейная форма</em> – это тензор типа <span\nclass=\"math inline\">\\((0, 2)\\)</span>.</p>",
+        "url": "риманова-метрика.html#definition-27"
+    },
+    {
+        "keyword": "обратный образ",
+        "html": "<p><a href=\"риманова-метрика.html#definition-28\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nПусть задано гладкое отображение <span class=\"math inline\">\\(f: M \\to\nN\\)</span> и билинейная форма <span\nclass=\"math inline\">\\(b_{ij}\\)</span>. <em>Обратный образ</em> <span\nclass=\"math inline\">\\(b_{ij}\\)</span> при отображении <span\nclass=\"math inline\">\\(f\\)</span> – это билинейная форма <span\nclass=\"math inline\">\\(f^{*}b_{ij}\\)</span> заданная следующим образом:\n<span class=\"math inline\">\\(f^{*}b_{ij}(\\xi, \\eta) = b_{ij}(d_Pf\\xi,\nd_Pf\\eta)\\)</span>.</p>",
+        "url": "риманова-метрика.html#definition-28"
+    },
+    {
+        "keyword": "индуцированная метрика",
+        "html": "<p><a href=\"риманова-метрика.html#definition-29\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nЕсли <span class=\"math inline\">\\(i: N \\hookrightarrow M\\)</span>, <span\nclass=\"math inline\">\\(N\\)</span> – подмногообразие, то <span\nclass=\"math inline\">\\(i^{*}g\\)</span> – <em>индуцированная\nметрика</em>.</p>",
+        "url": "риманова-метрика.html#definition-29"
+    },
+    {
+        "keyword": "тензорное поле валентности (типа)",
+        "html": "<p><a href=\"тензоры.html#definition-30\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Тензорное поле</em> <em>валентности (типа)</em> <span\nclass=\"math inline\">\\((p, q)\\)</span> – это подмножество <span\nclass=\"math inline\">\\(\\{(U_{\\alpha}, \\varphi_{\\alpha})\\}\\times\n(C^{\\infty}(M))^{n^{p + q}}\\)</span> или по-другому соответствие\nсопоставляющее каждой системе координат <span class=\"math inline\">\\(n^{p\n+ q}\\)</span> гладких функций <span class=\"math inline\">\\(T^{i_1 \\ldots\ni_p}_{j_1 \\ldots j_q}\\)</span> на многообразии <span\nclass=\"math inline\">\\(M\\)</span> размерности <span\nclass=\"math inline\">\\(N\\)</span>, такое что для двух систем координат\n<span class=\"math inline\">\\(x^1, \\ldots, x^n\\)</span> и <span\nclass=\"math inline\">\\(y^1, \\ldots, y^n\\)</span> верно:</p>\n<p><span class=\"math display\">\\[\\tilde{T}^{i_1 \\ldots i_p}_{j_1 \\ldots\nj_q}(y^1, \\ldots, y^n) = T^{i_1 \\ldots i_p}_{j_1 \\ldots j_q}(x^1,\n\\ldots, x^n)\\cdot \\frac{\\partial y^{i_1}}{\\partial x^{i_1}}\\cdot \\ldots\n\\cdot \\frac{\\partial y^{i_p}}{\\partial x^{i_p}}\\cdot \\frac{\\partial\nx^{j_1}}{\\partial y^{j_1}}\\cdot \\ldots \\cdot \\frac{\\partial\nx^{j_q}}{\\partial y^{j_q}}\\]</span></p>\n<p>Это соответствие обозначается <span\nclass=\"math inline\">\\(T\\)</span>.</p>",
+        "url": "тензоры.html#definition-30"
+    },
+    {
+        "keyword": "тензорное произведение",
+        "html": "<p><a href=\"тензоры.html#definition-31\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Тензорное произведение</em> тензоров <span\nclass=\"math inline\">\\(T\\)</span> и <span\nclass=\"math inline\">\\(S\\)</span> валентностей <span\nclass=\"math inline\">\\((p, q)\\)</span> и <span class=\"math inline\">\\((r,\ns)\\)</span> – это тензор <span class=\"math inline\">\\(T\\otimes\nS\\)</span>, заданный так:</p>\n<p><span class=\"math display\">\\[(T\\otimes S)^{i_1\\dots i_{p +\nr}}_{j_1\\dots j_{q + s}} = T^{i_1 \\ldots i_p}_{j_1 \\ldots j_q}\\cdot\nS^{i_{p + 1} \\ldots i_{p + r}}_{j_{q + 1} \\ldots j_{q + s}}\\]</span></p>",
+        "url": "тензоры.html#definition-31"
+    },
+    {
+        "keyword": "альтернирование тензора кососимметрическим",
+        "html": "<p><a href=\"тензоры.html#definition-32\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Альтернирование тензора</em> <span class=\"math inline\">\\(T_{j_1\\dots\nj_q}\\)</span> валентности <span class=\"math inline\">\\((0, q)\\)</span> –\nэто тензор <span class=\"math inline\">\\(\\operatorname{Alt}(T)_{j_1\\dots\nj_q} = \\frac1{q!} \\displaystyle\\sum_{\\nu}\\operatorname{sign}\\nu \\cdot\nT_{j_{\\nu(1)}\\dots j_{\\nu(n)}}\\)</span>.</p>\n<p>Альтернированный тензор называется <em>кососимметрическим</em>.</p>",
+        "url": "тензоры.html#definition-32"
+    },
+    {
+        "keyword": "внешнее произведение",
+        "html": "<p><a href=\"дифференциальные-формы.html#definition-33\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Внешнее произведение</em> тензоров <span\nclass=\"math inline\">\\(T_{j_1\\dots j_q}\\)</span> и <span\nclass=\"math inline\">\\(S_{j_1\\dots j_s}\\)</span> – это тензор <span\nclass=\"math inline\">\\((T\\wedge S)_{j_1\\dots j_{q + s}} = \\frac1{q! s!}\n\\displaystyle\\sum_{\\nu \\in S_{q + s}} \\operatorname{sign}(\\nu)\nT_{j_{\\nu(1)}\\dots j_{\\nu(q)}} \\cdot S_{j_{\\nu(q + 1)}\\dots j_{\\nu(q +\ns)}}\\)</span>.</p>",
+        "url": "дифференциальные-формы.html#definition-33"
+    },
+    {
+        "keyword": "связность на многообразии ковариантное дифференцирование ковариантная производная",
+        "html": "<p><a href=\"ковариантное-дифференцирование.html#definition-34\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Связность на многообразии</em> <span\nclass=\"math inline\">\\(M\\)</span> – это задание в каждой системе\nкоординат функций <span class=\"math inline\">\\(\\Gamma^i_{jk}\\)</span>,\nпреобразующихся по закону <span\nclass=\"math inline\">\\(\\Gamma^{i&#39;&#39;}_{j&#39;&#39;k&#39;&#39;} =\n\\frac{\\partial x^{i&#39;&#39;}}{\\partial x^{i&#39;}}\\cdot \\frac{\\partial\nx^{j&#39;}}{\\partial x^{j&#39;&#39;}} \\cdot \\frac{\\partial\nx^{k&#39;}}{\\partial x^{k&#39;&#39;}} \\Gamma^{i&#39;}_{j&#39; k&#39;} +\n\\frac{\\partial x^{i&#39;&#39;}}{\\partial x^{i&#39;}}\\cdot\n\\frac{\\partial^2 x^{i&#39;}}{\\partial x^{j&#39;&#39;} \\partial\nx^{k&#39;&#39;}}\\)</span>.</p>\n<p><em>Ковариантное дифференцирование</em> – это сопоставление тензору\nего ковариантной производной.</p>\n<p><em>Ковариантная производная</em> тензора <span\nclass=\"math inline\">\\(T^{i_1\\dots i_p}_{j_1\\dots j_q}\\)</span>\nвалентности <span class=\"math inline\">\\((p, q)\\)</span> – это тензор\nвалентности <span class=\"math inline\">\\((p, q + 1)\\)</span> заданный\nследующим образом:</p>\n<p><span class=\"math display\">\\[(\\nabla T)^{i_1\\dots i_p}_{j_1\\dots j_q\n; m} = \\frac{\\partial T^{i_1\\dots i_p}_{j_1\\dots j_q}}{\\partial x^m} +\nT^{s i_2\\dots i_p}_{j_1\\dots j_q}\\Gamma^{i_1}_{sm} + \\ldots +\nT^{i_1\\dots i_{p - 1}s}_{j_1\\dots j_q}\\Gamma^{i_p}_{sm} - T^{i_1\\dots\ni_p}_{s j_2\\dots j_q}\\Gamma^{s}_{j_1 m} - \\ldots - T^{i_1\\dots\ni_p}_{j_1\\dots j_{q - 1} s}\\Gamma^{s}_{j_q m}\\]</span></p>",
+        "url": "ковариантное-дифференцирование.html#definition-34"
+    },
+    {
+        "keyword": "связность",
+        "html": "<p><a href=\"ковариантное-дифференцирование.html#definition-35\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Связность</em> на многообразии – это <span\nclass=\"math inline\">\\(\\nabla: T \\mapsto \\nabla T\\)</span>,\nудовлетворяющая свойствам:</p>\n<ol type=\"1\">\n<li></li>\n<li></li>\n<li></li>\n<li></li>\n<li></li>\n</ol>",
+        "url": "ковариантное-дифференцирование.html#definition-35"
+    },
+    {
+        "keyword": "тензор кручения",
+        "html": "<p><a href=\"ковариантное-дифференцирование.html#definition-36\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\n<em>Тензор кручения</em> <span class=\"math inline\">\\(\\Omega^i_{jk} =\n\\Gamma^i_{jk} - \\Gamma^i_{kj}\\)</span>.</p>",
+        "url": "ковариантное-дифференцирование.html#definition-36"
+    },
+    {
+        "keyword": "симметричная",
+        "html": "<p><a href=\"ковариантное-дифференцирование.html#definition-37\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nСвязность <em>симметричная</em>, если ее тензор кручения равен <span\nclass=\"math inline\">\\(0\\)</span>.</p>",
+        "url": "ковариантное-дифференцирование.html#definition-37"
+    },
+    {
+        "keyword": "риманова связность леви-чивита",
+        "html": "<p><a href=\"ковариантное-дифференцирование.html#definition-38\"><span\nclass=\"margin-lft\"><strong>Перейти к определению:</strong></span></a>\nСимметричная связность <em>риманова</em> (<em>связность\nЛеви-Чивита</em>), если <span class=\"math inline\">\\(\\nabla g =\n0\\)</span>. (Подразумевается, что многообразие риманово и <span\nclass=\"math inline\">\\(g\\)</span> – риманова метрика на нем.)</p>",
+        "url": "ковариантное-дифференцирование.html#definition-38"
+    }
 ]
