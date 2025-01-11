@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+    
+    
+    
+    
+    <title>Семинар 1</title>
+    <style>
+        img.logo { position: fixed; left: 20px; top: 20px; width: 70px; height: 70px; }
+        div.sitenav { display: flex; justify-content: space-between; }
+        div.sitenav_right { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; flex-grow: 0; }
+        div.sitenav_left { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; flex-grow: 0; }
+        span.navlink { margin-left: 10px; }
+        span.navlink-label { display: inline-block; min-width: 4em; }
+        html {
+                    font-family: Georgia, serif;
+            
+                    font-size: 18px;
+            
+                    line-height: 1.45;
+            
+            color: #1a1a1a;
+
+            background-color: #fdfdfd;
+        }
+        body {
+            margin: 0 auto;
+            max-width: 64%;
+            padding-left: 20px;
+            padding-right: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            text-rendering: optimizeLegibility;
+            font-kerning: normal;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+        @media print {
+            html {
+                background-color: white;
+            }
+            body {
+                background-color: transparent;
+                color: black;
+                font-size: 16px;
+            }
+            p, h2, h3 {
+                orphans: 3;
+                widows: 3;
+            }
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
+        p {
+            margin: 0.5rem 0;
+        }
+        a {
+            color: #1a1a1a;
+        }
+        a:hover {
+            color: #7bc99a;
+        }
+        a:visited {
+            color: #1a1a1a;
+        }
+        img {
+            max-width: 100%;
+        }
+        svg {
+            height: auto;
+            max-width: 100%;
+        }
+
+        h1, h2 {
+            padding-bottom: 3px;
+            border-bottom: 1px solid black;
+        }
+
+        h1.title {
+            font-size: 2rem;
+            border: none;
+        }
+        h2.toc-title {
+            border: none !important;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 1rem 0;
+            margin-left: 0px;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        ol, ul {
+            padding-left: 1.7rem;
+            margin-top: 1rem;
+        }
+        li > ol, li > ul {
+            margin-top: 0;
+        }
+        blockquote {
+            margin: 1rem 0 1rem 1.7rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e6e6e6;
+            color: #606060;
+        }
+
+
+        code {
+            font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+                font-size: 85%;
+        /*    padding: 1rem 2rem;*/
+            margin: 0;
+            hyphens: manual;
+        }
+        pre {
+            margin: 1rem 0;
+                padding: 1rem 2rem;
+            overflow: auto;
+        }
+        pre code {
+        /*    padding: 1rem 2rem;*/
+            overflow: visible;
+            overflow-wrap: normal;
+        }
+        .sourceCode {
+            background-color: transparent;
+            overflow: visible;
+        }
+        div.sourceCode {
+            border-radius: 5px;
+            margin-left: 10px !important;
+        }
+        hr {
+            background-color: #1a1a1a;
+            border: none;
+            height: 1px;
+            margin: 1rem 0;
+        }
+        table {
+            margin: 1rem 0;
+            border-collapse: collapse;
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+        table caption {
+            margin-bottom: 0.75rem;
+        }
+        tbody {
+            margin-top: 0.5rem;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        th {
+            border-top: 1px solid #1a1a1a;
+            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        }
+        td {
+            padding: 0.125rem 0.5rem 0.25rem 0.5rem;
+        }
+        header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        #TOC li {
+            list-style: none;
+        }
+        #TOC ul {
+            padding-left: 1.3rem;
+        }
+        #TOC > ul {
+            padding-left: 0;
+        }
+        #TOC a:not(:hover) {
+            text-decoration: none;
+        }
+
+        code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        div.columns{display: flex; gap: min(4vw, 1.5em);}
+        div.column{flex: auto; overflow-x: auto;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        /* The extra [class] is a hack that increases specificity enough to
+           override a similar rule in reveal.js */
+        ul.task-list[class]{list-style: none;}
+        ul.task-list li input[type="checkbox"] {
+            font-size: inherit;
+            width: 0.8rem;
+            margin: 0 0.8rem 0.2rem -1.6rem;
+            vertical-align: middle;
+        }
+
+
+
+
+        .margin-lft {
+            margin-left: 0px;
+        }    </style>
+
+    
+    <script src="https://kit.fontawesome.com/4b37446228.js" crossorigin="anonymous"></script>
+
+    
+            <script
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+            type="text/javascript"></script>
+    </head>
+<body>
+
+
+<a href="https://mech-math-msu.github.io/everything/#/">
+    <img src="ico.png" alt="" class="logo">
+</a>
+
+<nav id="sitenav">
+    <div class="sitenav">
+        <div class="sitenav_left">
+            <span class="navlink">
+                <a href="search.html" accesskey="s" rel="search"><i class="fa-solid fa-search fa-sm" style="color: #363636;"></i></a>
+            </span>
+        </div>
+        <div class="sitenav_right">
+            <span class="navlink">
+                                <a href="index.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                            </span>
+        </div>
+    </div>
+</nav>
+
+
+
+<h1 data-number="1" id="семинар-1">Семинар 1</h1>
+<h2 data-number="1.1" id="домашняя-работа-1">Домашняя работа 1</h2>
+<div id="problem-0">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Привести
+пример непрерывного биективного отображения, не являющегося
+гомеоморфизмом.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> <span
+class="math inline">\(f: [0, 2\pi) \to \{(x, y): \,\,\,\, x^2 + y^2 =
+1\}: t \mapsto (\cos(t), \sin(t))\)</span></p>
+</div>
+<div id="problem-1">
+<p><span class="margin-lft"><strong>Задача: </strong></span><span
+class="math inline">\([a, b] \subset \mathbb{R}\)</span> связен и
+линейно связен.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть <span
+class="math inline">\([a, b] = A\cup B\)</span>, где <span
+class="math inline">\(A, B \subset [a, b], \,\,\,\, A \ne \varnothing,
+\,\,\,\, B \ne \varnothing, \,\,\,\, A, B\)</span> открыты.</p>
+<p>Пусть <span class="math inline">\(b_0 = \inf\{x: x \in B\}\)</span>.
+Если <span class="math inline">\(b_0 \in B\)</span>, то <span
+class="math inline">\(B\)</span> не является открытым, так как нет
+окрестности точки <span class="math inline">\(b_0\)</span>, лежащей в
+<span class="math inline">\(B\)</span>. Если <span
+class="math inline">\(b_0 \in A\)</span>, то <span
+class="math inline">\(A\)</span> не является открытым, так как нет
+окрестности точки <span class="math inline">\(b_0\)</span>.</p>
+<p><span class="math inline">\([a, b]\)</span> линейно связен, так как
+<span class="math inline">\(f_{ab}: x \mapsto b t + a (1 - t)
+\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-2">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Образ
+связного пространства при непрерывном отображении связен.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть не
+так, тогда исходное пространство представляется в виде дизъюнктного
+объединения открытых прообразов <span
+class="math inline">\(\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-3">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Привести
+пример связного, но не линейно связного пространства.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p><span class="math display">\[(\{0, 1\}, \{\{0, 1\}, \varnothing\})
+\,\,\,\,\blacksquare\]</span></p>
+</div>
+<div id="problem-4">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Привести
+пример нехаусдорфова топологического пространства.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p><span class="math display">\[(\{0, 1\}, \{\{0, 1\}, \varnothing\})
+\,\,\,\,\blacksquare\]</span></p>
+</div>
+<div id="problem-9">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что декартово произведение хаусдорфовых топологических пространств
+хаусдорфово.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p><span class="math inline">\((x_1, y_1)\)</span> и <span
+class="math inline">\((x_2, y_2)\)</span></p>
+<p>берем окрестности <span class="math inline">\(U_{x_1} \cap U_{x_2} =
+\varnothing\)</span> и <span class="math inline">\(U_{y_1} \cap U_{y_2}
+= \varnothing\)</span>.</p>
+</div>
+<div id="problem-5">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что в хаусдорфовом пространстве каждая точка замкнута.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p>Каждая точка дополнения входит в него (дополнение) вместе с открытой
+окрестностью, а именно той, которая не пересекает некоторую открытую
+окрестность исходной точки <span
+class="math inline">\(\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-6">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Всякое
+метрическое пространство нормально.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<div id="problem-7">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Пусть <span
+class="math inline">\(f\)</span> непрерывное отображение хаусдорфова
+пространства в себя. Доказать, что множество неподвижных точек <span
+class="math inline">\(F_f = \{x \in X: f(x) = x\}\)</span> замкнуто.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p>Хочу открытую окрестность для любой точки в дополнении.</p>
+</div>
+<div id="problem-8">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что <span class="math inline">\(X\)</span> хаусдорфово тогда и только
+тогда, когда диагональ <span class="math inline">\(\triangle := \{(x,
+x)| \,\,\,\, x \in X\} \subset X \times X\)</span> замкнута в <span
+class="math inline">\(X \times X\)</span>.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+<p><span class="math inline">\(\boxed{\longrightarrow} \,\,\,\, (x, y)
+\mapsto (x, x)\)</span> и предыдущаяя задача.</p>
+<p><span class="math inline">\(\boxed{\longleftarrow}\)</span>
+дополнение открыто, поэтому у точек <span class="math inline">\((x_1,
+x_2)\)</span> и <span class="math inline">\((x_2, x_1)\)</span> можно
+выбрать окрестности, содержащиеся в <span class="math inline">\(X\times
+X \setminus \triangle\)</span></p>
+</div>
+<div id="problem-10">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что если отображение <span class="math inline">\(f: X \to Y\)</span> в
+хаусдорфово пространство <span class="math inline">\(Y\)</span>
+непрерывно, то график <span class="math inline">\(\Gamma_f := \{(x,
+f(x))| \,\,\,\, x \in X\} \subset X\times Y\)</span> замкнут в <span
+class="math inline">\(X\times Y\)</span>.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть <span
+class="math inline">\(\Gamma_f\)</span> не замкнуто в <span
+class="math inline">\(X \times Y\)</span>. Тогда существует предельная
+точка <span class="math inline">\((x, y) \not \in \Gamma_f\)</span>.
+Предельная точка это такая, для любой окрестности <span
+class="math inline">\(U_{(x, y)}\)</span> которой, верно: <span
+class="math inline">\(U_{(x, y)} \cap \Gamma_f \ne \varnothing\)</span>
+и <span class="math inline">\(U_{(x, y)}\cap X \times Y \setminus
+\Gamma_f \ne \varnothing\)</span>. <span
+class="math inline">\(f\)</span> непрерывна, поэтому <span
+class="math inline">\(\forall V_{f(x)} \,\,\,\, \exists U_{x}: \,\,\,\,
+f(U_{x}) \subset V_{f(x)}\)</span></p>
+</div>
+<div id="problem-11">
+<p><span class="margin-lft"><strong>Задача: </strong></span>(Теорема
+Титце о продолжении) Пусть <span class="math inline">\(X\)</span> –
+нормальное топологическое пространство, <span class="math inline">\(F
+\subset X\)</span> замкнутое множество, <span class="math inline">\(f: F
+\to \mathbb{R}\)</span> – непрерывная функция. Тогда <span
+class="math inline">\(f\)</span> продолжается до непрерывной функции
+<span class="math inline">\(g: X \to \mathbb{R}\)</span>. Если <span
+class="math inline">\(f\)</span> ограничена, то и <span
+class="math inline">\(g\)</span> можно выбрать ограниченной той же
+константой.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<div id="problem-12">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что отрезок <span class="math inline">\([а, b]\)</span> компактен, как
+подмножество прямой.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> <span
+class="math inline">\([a, b]\)</span> ограничен и замкнут. Проверим
+замкнутость. Пусть не так, то есть существует предельная точка <span
+class="math inline">\(x, \,\,\,\, x \not \in [a, b]\)</span>.</p>
+</div>
+<div id="problem-13">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что замкнутое подмножество компактного пространства компактно.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Рассмотрим
+открытое покрытие замкнутого подмножества, добавим открытое дополнение
+до пространства, выделим конечное подпокрытие, выкинем, если нужно,
+дополнение <span class="math inline">\(\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-14">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что компактное подмножество хаусдорфова пространства замкнуто.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Докажем, что
+дополнение открыто, то есть содержит все свои точки с некоторой
+окрестностью. Рассмотрим точку дополнения. Возьмем для нее и каждой
+точки подмножества непересекающиеся окрестности. Получим октрытое
+покрытие подмножества. Выделим конечное подпокрытие и возьмем
+окрестности точки, соответствующие множествам конечного подпокрытия. Их
+пересечение – открытая окрестность точки, целиком лежащая в дополнении
+<span class="math inline">\(\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-15">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Доказать,
+что непрерывный образ компакта компактен.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span> Пусть дано
+открытое покрытие, перетащим его назад с помощью непрерывного
+отображения, получим покрытие прообраза, выделим конечное подпокрытие,
+отправим его обратно <span
+class="math inline">\(\,\,\,\,\blacksquare\)</span></p>
+</div>
+<div id="problem-16">
+<p><span class="margin-lft"><strong>Задача: </strong></span>Пусть <span
+class="math inline">\(f: X \to \mathbb{R}^1\)</span> – непрерывная
+функция на компактном пространстве <span
+class="math inline">\(X\)</span>. Тогда <span
+class="math inline">\(f\)</span> ограничена и принимает наибольшее и
+наименьшее значения.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+
+
+<nav id="sitenav">
+    <div class="sitenav_right">
+        <span class="navlink">
+                        <a href="index.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                    </span>
+    </div>
+</nav>
+
+</body>
+</html>

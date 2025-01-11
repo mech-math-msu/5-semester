@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+    
+    
+    
+    
+    <title>Ковариантное дифференцирование</title>
+    <style>
+        img.logo { position: fixed; left: 20px; top: 20px; width: 70px; height: 70px; }
+        div.sitenav { display: flex; justify-content: space-between; }
+        div.sitenav_right { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; flex-grow: 0; }
+        div.sitenav_left { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; flex-grow: 0; }
+        span.navlink { margin-left: 10px; }
+        span.navlink-label { display: inline-block; min-width: 4em; }
+        html {
+                    font-family: Georgia, serif;
+            
+                    font-size: 18px;
+            
+                    line-height: 1.45;
+            
+            color: #1a1a1a;
+
+            background-color: #fdfdfd;
+        }
+        body {
+            margin: 0 auto;
+            max-width: 64%;
+            padding-left: 20px;
+            padding-right: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            text-rendering: optimizeLegibility;
+            font-kerning: normal;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+        @media print {
+            html {
+                background-color: white;
+            }
+            body {
+                background-color: transparent;
+                color: black;
+                font-size: 16px;
+            }
+            p, h2, h3 {
+                orphans: 3;
+                widows: 3;
+            }
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
+        p {
+            margin: 0.5rem 0;
+        }
+        a {
+            color: #1a1a1a;
+        }
+        a:hover {
+            color: #7bc99a;
+        }
+        a:visited {
+            color: #1a1a1a;
+        }
+        img {
+            max-width: 100%;
+        }
+        svg {
+            height: auto;
+            max-width: 100%;
+        }
+
+        h1, h2 {
+            padding-bottom: 3px;
+            border-bottom: 1px solid black;
+        }
+
+        h1.title {
+            font-size: 2rem;
+            border: none;
+        }
+        h2.toc-title {
+            border: none !important;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 1rem 0;
+            margin-left: 0px;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+        }
+
+        ol, ul {
+            padding-left: 1.7rem;
+            margin-top: 1rem;
+        }
+        li > ol, li > ul {
+            margin-top: 0;
+        }
+        blockquote {
+            margin: 1rem 0 1rem 1.7rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e6e6e6;
+            color: #606060;
+        }
+
+
+        code {
+            font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+                font-size: 85%;
+        /*    padding: 1rem 2rem;*/
+            margin: 0;
+            hyphens: manual;
+        }
+        pre {
+            margin: 1rem 0;
+                padding: 1rem 2rem;
+            overflow: auto;
+        }
+        pre code {
+        /*    padding: 1rem 2rem;*/
+            overflow: visible;
+            overflow-wrap: normal;
+        }
+        .sourceCode {
+            background-color: transparent;
+            overflow: visible;
+        }
+        div.sourceCode {
+            border-radius: 5px;
+            margin-left: 10px !important;
+        }
+        hr {
+            background-color: #1a1a1a;
+            border: none;
+            height: 1px;
+            margin: 1rem 0;
+        }
+        table {
+            margin: 1rem 0;
+            border-collapse: collapse;
+            width: 100%;
+            overflow-x: auto;
+            display: block;
+            font-variant-numeric: lining-nums tabular-nums;
+        }
+        table caption {
+            margin-bottom: 0.75rem;
+        }
+        tbody {
+            margin-top: 0.5rem;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        th {
+            border-top: 1px solid #1a1a1a;
+            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        }
+        td {
+            padding: 0.125rem 0.5rem 0.25rem 0.5rem;
+        }
+        header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        #TOC li {
+            list-style: none;
+        }
+        #TOC ul {
+            padding-left: 1.3rem;
+        }
+        #TOC > ul {
+            padding-left: 0;
+        }
+        #TOC a:not(:hover) {
+            text-decoration: none;
+        }
+
+        code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        div.columns{display: flex; gap: min(4vw, 1.5em);}
+        div.column{flex: auto; overflow-x: auto;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        /* The extra [class] is a hack that increases specificity enough to
+           override a similar rule in reveal.js */
+        ul.task-list[class]{list-style: none;}
+        ul.task-list li input[type="checkbox"] {
+            font-size: inherit;
+            width: 0.8rem;
+            margin: 0 0.8rem 0.2rem -1.6rem;
+            vertical-align: middle;
+        }
+
+
+
+
+        .margin-lft {
+            margin-left: 0px;
+        }    </style>
+
+    
+    <script src="https://kit.fontawesome.com/4b37446228.js" crossorigin="anonymous"></script>
+
+    
+            <script
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+            type="text/javascript"></script>
+    </head>
+<body>
+
+
+<a href="https://mech-math-msu.github.io/everything/#/">
+    <img src="ico.png" alt="" class="logo">
+</a>
+
+<nav id="sitenav">
+    <div class="sitenav">
+        <div class="sitenav_left">
+            <span class="navlink">
+                <a href="search.html" accesskey="s" rel="search"><i class="fa-solid fa-search fa-sm" style="color: #363636;"></i></a>
+            </span>
+        </div>
+        <div class="sitenav_right">
+            <span class="navlink">
+                                <a href="дифференциальные-формы.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                            </span>
+            <span class="navlink">
+                                <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                            </span>
+        </div>
+    </div>
+</nav>
+
+
+
+<h1 data-number="11" id="ковариантное-дифференцирование">Ковариантное
+дифференцирование</h1>
+<h2 data-number="11.1" id="определение-1">Определение</h2>
+<div id="definition-34">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span><em>Связность на многообразии</em> <span
+class="math inline">\(M\)</span> – это задание в каждой системе
+координат функций <span class="math inline">\(\Gamma^i_{jk}\)</span>,
+преобразующихся по закону <span
+class="math inline">\(\Gamma^{i&#39;&#39;}_{j&#39;&#39;k&#39;&#39;} =
+\frac{\partial x^{i&#39;&#39;}}{\partial x^{i&#39;}}\cdot \frac{\partial
+x^{j&#39;}}{\partial x^{j&#39;&#39;}} \cdot \frac{\partial
+x^{k&#39;}}{\partial x^{k&#39;&#39;}} \Gamma^{i&#39;}_{j&#39; k&#39;} +
+\frac{\partial x^{i&#39;&#39;}}{\partial x^{i&#39;}}\cdot
+\frac{\partial^2 x^{i&#39;}}{\partial x^{j&#39;&#39;} \partial
+x^{k&#39;&#39;}}\)</span>.</p>
+<p><em>Ковариантное дифференцирование</em> – это сопоставление тензору
+его ковариантной производной.</p>
+<p><em>Ковариантная производная</em> тензора <span
+class="math inline">\(T^{i_1\dots i_p}_{j_1\dots j_q}\)</span>
+валентности <span class="math inline">\((p, q)\)</span> – это тензор
+валентности <span class="math inline">\((p, q + 1)\)</span> заданный
+следующим образом:</p>
+<p><span class="math display">\[(\nabla T)^{i_1\dots i_p}_{j_1\dots j_q
+; m} = \frac{\partial T^{i_1\dots i_p}_{j_1\dots j_q}}{\partial x^m} +
+T^{s i_2\dots i_p}_{j_1\dots j_q}\Gamma^{i_1}_{sm} + \ldots +
+T^{i_1\dots i_{p - 1}s}_{j_1\dots j_q}\Gamma^{i_p}_{sm} - T^{i_1\dots
+i_p}_{s j_2\dots j_q}\Gamma^{s}_{j_1 m} - \ldots - T^{i_1\dots
+i_p}_{j_1\dots j_{q - 1} s}\Gamma^{s}_{j_q m}\]</span></p>
+</div>
+<h2 data-number="11.2"
+id="определение-через-свойства-аксиоматическое">Определение через
+свойства (аксиоматическое)</h2>
+<div id="definition-35">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span><em>Связность</em> на многообразии – это <span
+class="math inline">\(\nabla: T \mapsto \nabla T\)</span>,
+удовлетворяющая свойствам:</p>
+<ol type="1">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+</div>
+<div id="theorem-4">
+<p><span class="margin-lft"><strong>Теорема:
+</strong></span>Аксиоматическое определение однозначно задает
+связность.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<h2 data-number="11.3" id="симметрическая-связность">Симметрическая
+связность</h2>
+<div id="definition-36">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span><em>Тензор кручения</em> <span
+class="math inline">\(\Omega^i_{jk} = \Gamma^i_{jk} -
+\Gamma^i_{kj}\)</span>.</p>
+</div>
+<div id="definition-37">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span>Связность <em>симметричная</em>, если ее тензор кручения
+равен <span class="math inline">\(0\)</span>.</p>
+</div>
+<h2 data-number="11.4" id="риманова-связность">Риманова связность</h2>
+<div id="definition-38">
+<p><span class="margin-lft"><strong>Определение:
+</strong></span>Симметричная связность <em>риманова</em> (<em>связность
+Леви-Чивита</em>), если <span class="math inline">\(\nabla g =
+0\)</span>. (Подразумевается, что многообразие риманово и <span
+class="math inline">\(g\)</span> – риманова метрика на нем.)</p>
+</div>
+<div id="statement-25">
+<p><span class="margin-lft"><strong>Утверждение:
+</strong></span>Риманова связность коммутирует с операциями поднятия и
+опускания индексов.</p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+<h3 data-number="11.4.1"
+id="существование-и-единственность-римановой-связности">Существование и
+единственность римановой связности</h3>
+<div id="theorem-5">
+<p><span class="margin-lft"><strong>Теорема: </strong></span>На
+римановом многообразии существет и единственная риманова связность и ее
+коэффиценты (<em>символы Кристоффеля</em>) выражаются следующим
+образом:</p>
+<p><span class="math display">\[\Gamma^i_{jk} = \frac12
+g^{ir}\left(\frac{\partial g_{rk}}{\partial x^j} + \frac{\partial
+g_{rj}}{\partial x^k} - \frac{\partial g_{jk}}{\partial
+x^r}\right)\]</span></p>
+<p><span class="margin-lft"><em>Доказательство:</em></span></p>
+</div>
+
+
+<nav id="sitenav">
+    <div class="sitenav_right">
+        <span class="navlink">
+                        <a href="дифференциальные-формы.html" accesskey="n" rel="previous"><i class="fa-solid fa-angle-left fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="index.html" accesskey="h" rel="top"><i class="fa-solid fa-book fa-sm" style="color: #363636;"></i></a>
+                    </span>
+        <span class="navlink">
+                        <a href="search.html" accesskey="p" rel="next"><i class="fa-solid fa-angle-right fa-sm" style="color: #363636;"></i></a>
+                    </span>
+    </div>
+</nav>
+
+</body>
+</html>
